@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+
+			<title>Lun_Elem_Pres Form</title>
+
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"> 
+
+			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres.css">
+			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres_t-containers.css">
+			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres_form.css">
+
+		</head>
+
+		<body onresize="responsiveFunction();" onload="printWidth(); responsiveFunction();">
+
+			<div class="overlay">
+
+				<div class="overlay-block flex-container">
+				</div>
+
+			</div>
+
+			<div id="side-nav" class="column">
+					
+						<a href="#" class="button close" onclick="closeNav();">&times;</a>
+						<a class="side-nav-element button" href="Lun_ElemPres_index.html">home</a>
+						<a class="side-nav-element button" href="Lun_ElemPres_form.html">form</a>
+						<a class="side-nav-element button" href="Lun_ElemPres_script.html">script</a>
+						<a class="side-nav-element button" href="#">references</a>
+
+			</div> 
+
+			<div id="wrapper">
+
+				<div id="header" class="row">
+
+					<div class="header-body margin"></div>
+
+					<div class="logo">
+						<a href="Lun_ElemPres_index.html"><img class="logo" src="images/logo4.png" height="100px"></a>
+					</div>
+
+					<nav class="header-body row">
+						
+						<div class="header-element"></div>
+
+						<a class="header-element button" href="Lun_ElemPres_index.html">home</a>
+						<a class="header-element button active" href="Lun_ElemPres_form.html">form</a>
+						<a class="header-element button" href="Lun_ElemPres_script.html">script</a>
+						<a class="header-element button" href="#">references</a>
+
+						<div class="header-element"></div>
+
+						<img src="images/sidebar-icon.png" height="59.7px" class="button side-nav" onclick="openNav();">
+
+					</nav>
+
+					<div class="header-body margin"></div>
+
+				</div>
+
+				<div class="main-body column">
+
+					<div class="t-container-head">
+						<p><span class="t-highlight">&lt;FORM&gt;</span><span class="t-sub"> collects user input that is often sent off and processed.</span></p>
+					</div>
+
+					<div class="form-demo">
+						<div class="t-container-body t-solid row">
+							<div class="t-container-element grid">
+								<h2>Figure I</h2>	
+								<div >
+									<form>
+										<label for="f-username">Username</label>
+										<input type="text" id="f-username" name="f-username">
+										<label for="f-password">Password</label>
+										<input type="text" id="f-password" name="f-password">
+									</form>
+								</div>
+							</div>
+							<div class="t-container-element grid">
+								<h2>Figure II</h2>
+								<form>
+									<label for="f-username">Username</label>
+									<input type="text" id="f-username" name="f-username">
+									<label for="f-password">Password</label>
+									<input type="text" id="f-password" name="f-password">
+								</form>
+							</div>
+						</div>
+
+						<div class="t-container-body t-frame">
+							<div id="f-output-space" class="t-container-element">
+								<h2>OUTPUT</h2>
+								<p>Nothing Here For Now</p>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="row">
+					
+						<div class="margin"></div>
+
+						<div class="">
+							
+						</div>
+
+						<div class=""></div>
+
+						<div class="margin"></div>
+
+					</div>
+
+				</div>
+
+				<div class="footer row">
+					<span class="footer-element margin"></span>
+					<span class="footer-element">
+						<p>Made by Paris Lun.</p>
+					</span>
+				</div>
+
+			</div>
+
+			<script>
+
+				//added this flag to dynamically respond to opening and closing of the sidebar
+				let is_sidebar_open = false;
+
+				//opens sidebar
+				function openNav() {
+					document.getElementById("side-nav").style.width = "250px";
+					document.getElementById("wrapper").style.marginRight = "250px";
+					is_sidebar_open = true;
+					responsiveFunction();
+				}
+
+				//closes sidebar
+				function closeNav() {
+					document.getElementById("side-nav").style.width = "0px";
+					document.getElementById("wrapper").style.marginRight = "0px";
+					is_sidebar_open = false;
+					responsiveFunction();
+				}
+
+			</script>
+
+			<!--
+			The following script was repurposed from Krishna's answer in the following Stack Overflow link:
+			https://stackoverflow.com/questions/31974582/difference-between-document-getelementbyid-and-document-getelementsbyclassname
+			
+			We use it to dynamically remove the header elements when the width of the header is below 600px.
+			-->
+			<script>
+
+				let h_element = document.getElementsByClassName('header-element');
+
+				function responsiveFunction() {
+
+					let h_width = document.getElementById('header').offsetWidth;	// retrieves the element width from the page
+
+					if (is_sidebar_open == true) {		// subtracts the sidebar width from the header width
+						h_width -= 250;					// we can only retrieve the header width before the change as the event
+					}									// attribute triggers this function before it opens the sidebar
+					else {
+						if (h_width <700) {				// adds the siebar width back when it is closed
+							h_width += 250;
+						}
+					}
+
+					// The following hides the nav links when the window gets too small
+					// I have not tested this on different screen sizes
+					// Should probably base it off aspect ratio
+
+					if (h_width < 700) {
+					
+						for (var i = 0; i < h_element.length; i++){	 	// iterates between the items in the output array
+							h_element[i].style.display = "none";		// of getElementsByClassName
+						} 
+					}
+					else {
+						for (var i = 0; i < h_element.length; i++){
+							h_element[i].style.display = "block";
+						}
+					}
+
+				//	alert(h_width);
+				}
+
+			</script>
+
+			<noscript> Your Browser Does Not Support Javascript or It's Been Turned Off. </noscript>
+
+			<!-- anything within these is called a comment: place textual information for 
+			other web designers, UX/UI, and reminders and notes to yourself as to why you 
+			coded something a certain way.
+
+			BIBLIOGRAPHY OF CITATIONS
+
+				https://www.khronos.org/collada/wiki/Help:Using_greater-than_and_less-than_symbols_and_HTML_in_wiki_articles
+				https://www.w3schools.com/CSSref/css3_pr_box-sizing.asp
+				https://w3docs.com/snippets/html/how-to-create-an-html-button-that-acts-like-a-link.html
+				https://www.w3schools.com/tags/tag_nav.asp
+				https://www.w3schools.com/tags/tag_header.asp
+				https://www.w3schools.com/css/css3_buttons.asp
+				https://www.w3schools.com/css/css3_flexbox.asp
+				https://www.w3schools.com/howto/howto_js_sidenav.asp
+				https://stackoverflow.com/questions/22429003/how-to-right-align-flex-item
+				https://www.w3schools.com/howto/howto_js_sidenav.asp
+				https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
+				https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+				https://www.w3docs.com/snippets/css/how-to-change-the-color-of-png-image-using-css.html
+				https://www.w3schools.com/html/html_responsive.asp
+				https://www.w3schools.com/css/css3_transitions.asp
+				https://stackoverflow.com/questions/6409505/document-getelementbyid-is-not-a-function
+				https://www.w3schools.com/CSSref/css_units.asp
+				https://www.w3schools.com/cssref/pr_pos_z-index.asp
+				https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+				https://www.w3schools.com/tags/ev_onresize.asp
+				https://www.w3schools.com/css/css3_2dtransforms.asp
+
+			<>tags most Elements are (open and closed) tags; some are not
+			<b>Tags are read by the DOM= Browser and employ scripts to have text readout a certain format, design, programmed way </b>
+
+			Expressions are tags and the elements combined:
+			<p>This is an expression</p>
+
+			-->
+
+		</body>
+	</html>

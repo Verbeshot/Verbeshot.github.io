@@ -1,0 +1,78 @@
+:root {
+	--margin-hz: 100px;
+	--margin-vt-s: 50px;
+	--margin-vt-m: 75px;
+	--margin-vt-l: 125px;
+}
+
+/*---------------------- General Containers ----------------------*/
+
+p, h2{
+	margin: 0px;
+}
+
+input {
+	background-color: #000;
+	border-style: double;
+	border-color: var(--primary-color);
+}
+
+.t-container-head {
+	height: auto;
+	font-size: 5rem;
+	padding-left: var(--margin-hz);
+}
+
+.t-highlight{
+	background-color: var(--primary-color);
+	width: auto;
+}
+
+.t-container-body {
+	padding: 50px;
+	margin: 0px var(--margin-hz);;
+	margin-top: var(--margin-vt-m);
+}
+
+.t-container-body.row {
+	justify-content: center;
+}
+
+.t-container-element {
+	padding: 10px;
+	margin: 10px auto;
+	flex: 1 1 auto;
+}
+
+.t-container-element.grid {
+	border-style: solid;
+	border-width: 3px;
+	border-right: 0px;
+}
+
+.t-container-element.grid:last-child {
+	border-right: 3px solid;
+}
+
+.t-container-code {
+
+}
+
+.t-sub {
+	font-style: italic;
+	font-size: 0.3em;
+}
+
+.t-indent{
+
+}
+
+.t-solid {
+	background-color: var(--primary-color);
+}
+
+.t-frame {
+	border: 3px var(--primary-color) solid;
+}
+
+/*---------------------- Specific Properties ----------------------*/
