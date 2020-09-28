@@ -12,14 +12,7 @@
 
 		</head>
 
-		<body onresize="responsiveFunction();" onload="printWidth(); responsiveFunction();">
-
-			<div class="overlay">
-
-				<div class="overlay-block flex-container">
-				</div>
-
-			</div>
+		<body onresize="responsiveFunction();" onload="responsiveFunction();">
 
 			<div id="side-nav" class="column">
 					
@@ -27,7 +20,7 @@
 						<a class="side-nav-element button" href="index.html">home</a>
 						<a class="side-nav-element button" href="Lun_ElemPres_form.html">form</a>
 						<a class="side-nav-element button" href="Lun_ElemPres_script.html">script</a>
-						<a class="side-nav-element button" href="#">references</a>
+						<a class="side-nav-element button" href="Lun_ElemPres_references.html">references</a>
 
 			</div> 
 
@@ -38,7 +31,7 @@
 					<div class="header-body margin"></div>
 
 					<div class="logo">
-						<a href="Lun_ElemPres_index.html"><img class="logo" src="images/logo4.png" height="100px"></a>
+						<a href="index.html"><img class="logo" src="images/logo4.png" height="100px"></a>
 					</div>
 
 					<nav class="header-body row">
@@ -48,7 +41,7 @@
 						<a class="header-element button" href="index.html">home</a>
 						<a class="header-element button" href="Lun_ElemPres_form.html">form</a>
 						<a class="header-element button active" href="Lun_ElemPres_script.html">script</a>
-						<a class="header-element button" href="#">references</a>
+						<a class="header-element button" href="Lun_ElemPres_references.html">references</a>
 
 						<div class="header-element"></div>
 
@@ -62,27 +55,246 @@
 
 				<div class="main-body column">
 
-					<div class="t-container-head">
-						<p><span class="t-highlight">&lt;SCRIPT&gt;</span><span class="t-sub"> embeds or links to scripts that receive, manipulate, validate, or send data. </span></p>
+					<div class="t-container-head row">
+						<p><span class="t-highlight">&lt;SCRIPT&gt;</span><span class="t-sub"> embeds or links to scripts that receive, manipulate, validate, or send data.</span></p>
+						<div id="MDN-link">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script">MDN</a>
+						</div>
 					</div>
 
-					<div class="t-container-head">
-
-					<div class="row">
-					
-						<div class="margin"></div>
-
-						<div class="">
-							
+				<div class="form-demo">
+						<div class="t-container-body t-solid">
+							<div class="t-container-table row">
+								<div class="t-container-element t-container-form">
+									<div class="t-size3">Figure II</div>
+									<form class="t-indent">
+										<label for="f-page-color">Page Color:</label>
+										<select name="f-page-color" id="f-page-color">
+											<option value="blue">Blue</option>
+											<option value="red">Red</option>
+											<option value="green">Green</option>
+											<option value="yellow">Yellow</option>
+										</select>
+										<input type="button" value="Submit" onclick="colorChange()">
+									</form>
+								</div>
+							</div>
+							<p>There are already lots of script elements on and about this website. I thought this one would be fun.</p>
 						</div>
 
-						<div class=""></div>
+						<div id="code-block" class="t-container-body t-solid">
+							<span class="t-size2"><p>SAMPLE CODE</p></span>
+							<div class="row t-container-table">
+								<div class="t-container-element">
+								<pre>
+&lt;script>
 
-						<div class="margin"></div>
+	let h_element = document.getElementsByClassName('header-element');
 
+	function responsiveFunction() {
+
+		let h_width = document.getElementById('header').offsetWidth;
+
+		if (is_sidebar_open == true) {
+			h_width -= 250;	
+		}
+		else {
+			if (h_width <700) {	
+			}
+		}
+
+		// The following hides the nav links when the window gets too small
+		// I have not tested this on different screen sizes
+		// Should probably base it off aspect ratio
+
+		if (h_width < 700) {
+		
+			for (var i = 0; i < h_element.length; i++){	 
+				h_element[i].style.display = "none";
+			} 
+		}
+		else {
+			for (var i = 0; i < h_element.length; i++){
+				h_element[i].style.display = "block";
+			}
+		}
+	}
+
+&lt;/script></pre>
+								</div>
+								<div class="t-container-element t-solid">
+								<pre>
+// defines the start of the script
+
+// defines an array of every header element
+
+// defines a function that partially implements responsive design
+
+// retrieves the element width from the page
+
+// subtracts the sidebar width from the header width as
+// we can only retrieve the header width before it pops out
+
+
+// adds the sidebar width back when it is closed
+
+
+
+
+
+
+
+
+
+// iterates between the items in the output array
+// of getElementsByClassName
+
+
+
+
+
+
+
+
+
+
+//ends script</pre>
+								</div>
+							</div>
+						</div>
 					</div>
 
-				</div>
+
+					<div id="a-elements" class="t-container-body t-container-list row">
+						<div class="t-container-element t-size3 t-solid"><p>ASSOCIATED<br>ELEMENTS</p></div>
+						<div class="t-container-element t-indent">
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;noscript></p>
+								</div>
+								<div class="t-container-element">
+									<p>Defines alternate content to display if scripts are disabled.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-wrapper">
+						<div id="attributes" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>ATTRIBUTES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element t-solid">
+										<p>Attribute</p>
+									</div>
+									<div class="t-container-element t-solid">
+										<p>Value</p>
+									</div>
+									<div class="t-container-element t-solid">
+										<p>Description</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>async</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">async</p>
+									</div>
+									<div class="t-container-element">
+										<p>Specifies that the script is to be run in parralel while the HTML parses for external scripts.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>charset</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">charset</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines the character encoding that is being used in an external script</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>defer</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">defer</p>
+									</div>
+									<div class="t-container-element">
+										<p>Specifies that the script is to be run in series with the HTML for external scripts; after the HTML parses.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>src</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">URL</p>
+									</div>
+									<div class="t-container-element">
+										<p>Specifies the location of an external script.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>type</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">media_type</p>
+									</div>
+									<div class="t-container-element">
+										<p>Specifies what type of script is being referred to.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="g-attributes" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>GLOBAL ATTRIBUTES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element">
+										<p>No global attributes are useful for script elements as they are by default hidden.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="e-attributes" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>EVENT ATTRIBUTES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element">
+										<p>Event attributes are not supported for the script element.</p>
+										<p>Events call the scripts. Not the other way around.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-wrapper">
+						<div id="properties" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>PROPERTIES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>display</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">none</p>
+									</div>
+									<div class="t-container-element">
+										<p>Scripts are hidden from view.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 
 				<div class="footer row">
 					<span class="footer-element margin"></span>
@@ -90,6 +302,7 @@
 						<p>Made by Paris Lun.</p>
 					</span>
 				</div>
+
 
 			</div>
 
@@ -134,7 +347,7 @@
 						h_width -= 250;					// we can only retrieve the header width before the change as the event
 					}									// attribute triggers this function before it opens the sidebar
 					else {
-						if (h_width <700) {				// adds the siebar width back when it is closed
+						if (h_width <700) {				// adds the sidebar width back when it is closed
 							h_width += 250;
 						}
 					}
@@ -156,6 +369,31 @@
 					}
 
 				//	alert(h_width);
+				}
+
+			</script>
+
+			<script>
+
+				function colorChange() {
+
+					let f_color = document.getElementById("f-page-color").value;
+
+					if (f_color == "red") {
+						document.documentElement.style.setProperty('--primary-color', '#D42A2A');
+					}
+
+					if (f_color == "blue") {
+						document.documentElement.style.setProperty('--primary-color', '#2AD4D4');
+					}
+
+					if (f_color == "green") {
+						document.documentElement.style.setProperty('--primary-color', '#84d728');
+					}
+
+					if (f_color == "yellow") {
+						document.documentElement.style.setProperty('--primary-color', '#e9c916');
+					}
 				}
 
 			</script>
@@ -200,3 +438,4 @@
 
 		</body>
 	</html>
+

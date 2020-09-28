@@ -12,14 +12,7 @@
 
 		</head>
 
-		<body onresize="responsiveFunction();" onload="printWidth(); responsiveFunction();">
-
-			<div class="overlay">
-
-				<div class="overlay-block flex-container">
-				</div>
-
-			</div>
+		<body onresize="responsiveFunction();" onload="responsiveFunction();">
 
 			<div id="side-nav" class="column">
 					
@@ -27,7 +20,7 @@
 						<a class="side-nav-element button" href="index.html">home</a>
 						<a class="side-nav-element button" href="Lun_ElemPres_form.html">form</a>
 						<a class="side-nav-element button" href="Lun_ElemPres_script.html">script</a>
-						<a class="side-nav-element button" href="#">references</a>
+						<a class="side-nav-element button" href="Lun_ElemPres_references.html">references</a>
 
 			</div> 
 
@@ -38,7 +31,7 @@
 					<div class="header-body margin"></div>
 
 					<div class="logo">
-						<a href="Lun_ElemPres_index.html"><img class="logo" src="images/logo4.png" height="100px"></a>
+						<a href="index.html"><img class="logo" src="images/logo4.png" height="100px"></a>
 					</div>
 
 					<nav class="header-body row">
@@ -48,7 +41,7 @@
 						<a class="header-element button" href="index.html">home</a>
 						<a class="header-element button active" href="Lun_ElemPres_form.html">form</a>
 						<a class="header-element button" href="Lun_ElemPres_script.html">script</a>
-						<a class="header-element button" href="#">references</a>
+						<a class="header-element button" href="Lun_ElemPres_references.html">references</a>
 
 						<div class="header-element"></div>
 
@@ -62,59 +55,347 @@
 
 				<div class="main-body column">
 
-					<div class="t-container-head">
+					<div class="t-container-head row">
 						<p><span class="t-highlight">&lt;FORM&gt;</span><span class="t-sub"> collects user input that is often sent off and processed.</span></p>
+						<div id="MDN-link">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">MDN</a>
+						</div>
 					</div>
 
 					<div class="form-demo">
-						<div class="t-container-body t-solid row">
-							<div class="t-container-element grid">
-								<h2>Figure I</h2>	
-								<div >
-									<form>
-										<label for="f-username">Username</label>
-										<input type="text" id="f-username" name="f-username">
-										<label for="f-password">Password</label>
-										<input type="text" id="f-password" name="f-password">
-									</form>
+						<div class="t-container-body t-solid">
+							<div class="t-container-table row">
+								<div class="t-container-element t-container-form">
+									<div class="t-size3"><p>Figure I</p></div>	
+									<div >
+										<form class="t-indent" onsubmit="textOutput();">
+											<label for="f-username">Username:</label>
+											<input type="text" id="f-username" name="f-username">
+											<label for="f-password">Password:</label>
+											<input type="password" id="f-password" name="f-password"><br><br>
+											<input type="button" value="Submit" onclick="textOutput()">
+										</form>
+									</div>
 								</div>
 							</div>
-							<div class="t-container-element grid">
-								<h2>Figure II</h2>
-								<form>
-									<label for="f-username">Username</label>
-									<input type="text" id="f-username" name="f-username">
-									<label for="f-password">Password</label>
-									<input type="text" id="f-password" name="f-password">
-								</form>
-							</div>
+							<p>The password is "Cabbage". No real PHP has been used for form submission. This is merely Javascript.</p>
 						</div>
 
 						<div class="t-container-body t-frame">
-							<div id="f-output-space" class="t-container-element">
-								<h2>OUTPUT</h2>
-								<p>Nothing Here For Now</p>
+							<div class="t-container-element">
+								<span class="t-size2"><p>OUTPUT</p></span>
+								<p id="f-output-space">Nothing Here For Now</p>
+							</div>
+						</div>
+
+						<div id="code-block" class="t-container-body t-solid">
+							<span class="t-size2"><p>SAMPLE CODE</p></span>
+							<div class="row t-container-table">
+								<div class="t-container-element">
+								<pre>
+&lt;form action="/sample_page.php">
+	&lt;label for="f-username">Username&lt;/label>
+	&lt;input type="text" id="f-username" name="f-username">
+	&lt;label for="f-password">Password&lt;/label>
+	&lt;input type="text" id="f-password" name="f-password">
+	&lt;input type="submit" value="Submit">
+&lt;/form></pre>
+								</div>
+								<div class="t-container-element t-solid">
+								<pre>
+//defines the start of the form
+//labels "Username"
+//creates a text field to input a username
+//labels "Password"
+//creates a text field to input a password
+//creates a submit button
+//ends form</pre>
+								</div>
 							</div>
 						</div>
 					</div>
 
 
-
-					<div class="row">
-					
-						<div class="margin"></div>
-
-						<div class="">
-							
+					<div id="a-elements" class="t-container-body t-container-list row">
+						<div class="t-container-element t-size3 t-solid"><p>ASSOCIATED<br>ELEMENTS</p></div>
+						<div class="t-container-element t-indent">
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;input></p>
+								</div>
+								<div class="t-container-element">
+									<p>Creates an input field to enter data into.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;textarea></p>
+								</div>
+								<div class="t-container-element">
+									<p>Creates a multi-line text input field.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;button></p>
+								</div>
+								<div class="t-container-element">
+									<p>Creates a button that can accept nested elements different from &lt;input> buttons which cannot.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;select></p>
+								</div>
+								<div class="t-container-element">
+									<p>Creates a drop-down list that collects user input.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;option></p>
+								</div>
+								<div class="t-container-element">
+									<p>Defines the options within a drop-down list created by &lt;select></p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;optgroup></p>
+								</div>
+								<div class="t-container-element">
+									<p>Groups options together within a drop-down list.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;fieldset>
+								</div>
+								<div class="t-container-element">
+									<p>Groups specified elements together in a form with a box.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;label></p>
+								</div>
+								<div class="t-container-element">
+									<p>Creates a label to be used with different input types such as &lt;textarea> or radio buttons.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>&lt;output></p>
+								</div>
+								<div class="t-container-element">
+									<p>Represents the result of a calculation between different inputs.</p>
+								</div>
+							</div>
 						</div>
-
-						<div class=""></div>
-
-						<div class="margin"></div>
-
 					</div>
 
-				</div>
+					<div class="table-wrapper">
+						<div id="attributes" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>ATTRIBUTES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element t-solid">
+										<p>Attribute</p>
+									</div>
+									<div class="t-container-element t-solid">
+										<p>Value</p>
+									</div>
+									<div class="t-container-element t-solid">
+										<p>Description</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>accept-charset</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">character_set</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines the character encoding that is to be used for form submission.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>action</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">URL</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines the location to send the form's data once it's been submitted.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>autocomplete</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">on, off</p>
+									</div>
+									<div class="t-container-element">
+										<p>Turns autocomplete on or off.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>enctype</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">application/x-www-form-urlencoded,<br>multipart/form-data, text/plain</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines the data's encryption format when submitting to a server.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>method</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">get, post</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines the HTTP method to use to send data.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>name</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">text</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines a form's name</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>novalidate</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">novalidate</p>
+									</div>
+									<div class="t-container-element">
+										<p>Flags that a form should not be validated upon submission.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>rel</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">external, license, next, nofollow,<br>noopener, noreferrer, opener, prev, search</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines the relationship between the linked and current document.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>target</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">_blank, _self, _parent, _top</p>
+									</div>
+									<div class="t-container-element">
+										<p>Defines the place to display the response after the form has been submitted.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="g-attributes" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>GLOBAL ATTRIBUTES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>spellcheck</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">true, false</p>
+									</div>
+									<div class="t-container-element">
+										<p>Specifies whether on not spellcheck should be applied. Useful for text inputs.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>class</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">classname</p>
+									</div>
+									<div class="t-container-element">
+										<p>Specifies a CSS class that can be used to style the form</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="e-attributes" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>EVENT ATTRIBUTES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>onchange</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">script</p>
+									</div>
+									<div class="t-container-element">
+										<p>Calls the specified script when any element within the form is changed.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="t-container-element t-frame">
+										<p>onsubmit</p>
+									</div>
+									<div class="t-container-element t-frame">
+										<p class="t-highlight3">script</p>
+									</div>
+									<div class="t-container-element">
+										<p>Calls the specified script when the form is submitted.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="properties" class="t-container-body t-container-list row">
+						<div class="t-container-element t-size3 t-solid"><p>PROPERTIES</p></div>
+						<div class="t-container-element t-indent">
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>display</p>
+								</div>
+								<div class="t-container-element t-frame">
+									<p class="t-highlight3">block</p>
+								</div>
+								<div class="t-container-element">
+									<p>Forms are displayed as blocks of content, the same as a div element.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="t-container-element t-frame">
+									<p>margin-top</p>
+								</div>
+								<div class="t-container-element t-frame">
+									<p class="t-highlight3">0em</p>
+								</div>
+								<div class="t-container-element">
+									<p>Forms do not have a top margin.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
 
 				<div class="footer row">
 					<span class="footer-element margin"></span>
@@ -125,6 +406,7 @@
 
 			</div>
 
+			<!--Script that opens and closes the sidebar-->
 			<script>
 
 				//added this flag to dynamically respond to opening and closing of the sidebar
@@ -192,6 +474,28 @@
 
 			</script>
 
+			<!--This script receives the input from the from and generates and output in place of PHP as I don't have
+				enough time to learn it in a timely manner.-->
+
+			<script>
+
+				function textOutput() {
+					var username = document.getElementById("f-username").value;			//retrieves the value of the username input
+					var password = document.getElementById("f-password").value;			//retrieves the value of the password input
+
+					if (password == "Cabbage") {
+						document.getElementById("f-output-space").innerHTML = "Welcome " + username + "!";		//if password is correct, log user in although only in spirit
+					}
+					if (password == "" || username == "") {
+						document.getElementById("f-output-space").innerHTML = "Please don't leave the input fields blank!";		//if input fields blank, respond accordingly
+					}
+					if (password != "Cabbage") {
+						document.getElementById("f-output-space").innerHTML = "Wrong password!";		//admonish the user for putting a wrong password
+					}
+				}
+
+			</script>
+
 			<noscript> Your Browser Does Not Support Javascript or It's Been Turned Off. </noscript>
 
 			<!-- anything within these is called a comment: place textual information for 
@@ -221,6 +525,13 @@
 				https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 				https://www.w3schools.com/tags/ev_onresize.asp
 				https://www.w3schools.com/css/css3_2dtransforms.asp
+				https://www.w3schools.com/TAGs/tag_select.asp
+				https://www.w3schools.com/TAGs/tag_form.asp
+				https://www.w3schools.com/TAGs/tag_input.asp
+				https://www.w3schools.com/TAGs/tag_button.asp
+				https://www.w3schools.com/TAGs/tag_label.asp
+				https://www.w3schools.com/js/tryit.asp?filename=tryjs_form_elements
+				https://davidwalsh.name/css-variables-javascript
 
 			<>tags most Elements are (open and closed) tags; some are not
 			<b>Tags are read by the DOM= Browser and employ scripts to have text readout a certain format, design, programmed way </b>

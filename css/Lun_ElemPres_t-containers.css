@@ -12,15 +12,19 @@ p, h2{
 }
 
 input {
-	background-color: #000;
+	background-color: #fff;
 	border-style: double;
 	border-color: var(--primary-color);
+}
+
+input[type=button] {
+	color: var(--primary-color);
 }
 
 .t-container-head {
 	height: auto;
 	font-size: 5rem;
-	padding-left: var(--margin-hz);
+	padding: 0px var(--margin-hz);
 }
 
 .t-highlight{
@@ -28,9 +32,19 @@ input {
 	width: auto;
 }
 
+.t-highlight2{
+	background-color: var(--secondary-color);
+	width: auto;
+}
+
+.t-highlight3{
+	color: var(--secondary-color);
+}
+
+
 .t-container-body {
 	padding: 50px;
-	margin: 0px var(--margin-hz);;
+	margin: 0px var(--margin-hz);
 	margin-top: var(--margin-vt-m);
 }
 
@@ -44,27 +58,31 @@ input {
 	flex: 1 1 auto;
 }
 
-.t-container-element.grid {
+.t-container-table > div {
 	border-style: solid;
 	border-width: 3px;
 	border-right: 0px;
 }
 
-.t-container-element.grid:last-child {
+.t-indent {
+	margin-left: 25px;
+}
+
+.t-container-list > div{
+	align-items: center;
+}
+
+.t-container-table > div:last-child {
 	border-right: 3px solid;
 }
 
-.t-container-code {
-
+.t-container-form > div{
+	margin-bottom: 20px;
 }
 
 .t-sub {
 	font-style: italic;
 	font-size: 0.3em;
-}
-
-.t-indent{
-
 }
 
 .t-solid {
@@ -75,4 +93,92 @@ input {
 	border: 3px var(--primary-color) solid;
 }
 
+.t-frame + .t-frame {
+	border-left: 0px var(--primary-color) solid;
+}
+
+.t-size1 {
+	font-size: 5rem;
+}
+
+.t-size2 {
+	font-size: 3rem;
+}
+
+.t-size3 {
+	font-size: 2rem;
+}
+
 /*---------------------- Specific Properties ----------------------*/
+
+#code-block div:first-child{
+	background-color: #0a0c10;
+	border-color: var(--primary-color);
+}
+
+#code-block div:last-child{
+	border-left: 0;
+}
+
+.t-container-list div{
+	flex: 1 1 auto;
+	min-width: 10px;
+}
+.t-container-list > div{
+	flex: 0 1 250px;
+}
+
+.t-container-list div:last-child{
+	flex: 10 1 auto;
+}
+
+.t-container-list .t-frame{
+	border-right: 3px var(--primary-color) solid;
+}
+
+.t-container-list .t-frame + .t-frame {
+	border: 0px;
+	border-right: 3px var(--primary-color) solid;
+}
+
+.table-wrapper > div {
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0px;
+}
+
+.table-wrapper > div > div {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.table-wrapper > div:first-child {
+	padding-top: 50px;
+}
+
+.table-wrapper > div:first-child > div{
+	margin-top: 10px;
+}
+
+.table-wrapper > div:last-child {
+	padding-bottom: 50px;
+}
+
+#g-attributes > div:first-child {
+	background-color: var(--secondary-color);
+}
+
+#MDN-link{
+	background-color: var(--secondary-color);
+	margin-left: auto;
+	align-self: center;
+	font-size: 3rem;
+	padding: 5px;
+	transition: 0.25s;
+}
+
+#MDN-link:hover{
+	background-color: var(--primary-color);
+	padding: 3px;
+}

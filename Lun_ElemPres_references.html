@@ -2,22 +2,19 @@
 	<html>
 		<head>
 
-			<title>
-				Lun_Elem_Pres Homepage
-			</title>
+			<title>Lun_Elem_Pres Script</title>
 
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"> 
 
 			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres.css">
 			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres_t-containers.css">
-			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres_index.css">
+			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres_script.css">
 
 		</head>
 
-		<body onresize="responsiveFunction();" onload="printWidth(); responsiveFunction();">
+		<body onresize="responsiveFunction();" onload="responsiveFunction();">
 
-			<!--Defines a sidebar-->
-			<div id="side-nav" class="column"> 		<!--flex column-->
+			<div id="side-nav" class="column">
 					
 						<a href="#" class="button close" onclick="closeNav();">&times;</a>
 						<a class="side-nav-element button" href="index.html">home</a>
@@ -27,65 +24,114 @@
 
 			</div> 
 
-			<!--Wrapper for rest of page to react to sidebar-->
 			<div id="wrapper">
 
-				<!--Defines the header-->
-				<div id="header" class="row">	<!--row defines a flex element with flex-direction: row-->
+				<div id="header" class="row">
 
 					<div class="header-body margin"></div>
 
-					<!--Original logo, all images original actually-->
 					<div class="logo">
-						<a href="index.html"><img class="logo" src="images/logo4.png" 
-							height="100px" alt="Form and Script Logo"></a>
+						<a href="index.html"><img class="logo" src="images/logo4.png" height="100px"></a>
 					</div>
 
 					<nav class="header-body row">
 						
 						<div class="header-element"></div>
 
-						<a class="header-element button active" href="index.html">home</a>			<!--active class creates line under link-->
+						<a class="header-element button" href="index.html">home</a>
 						<a class="header-element button" href="Lun_ElemPres_form.html">form</a>
 						<a class="header-element button" href="Lun_ElemPres_script.html">script</a>
-						<a class="header-element button" href="Lun_ElemPres_references.html">references</a>
+						<a class="header-element button active" href="Lun_ElemPres_references.html">references</a>
 
 						<div class="header-element"></div>
 
-						<img src="images/sidebar-icon.png" height="59.7px" class="button side-nav" onclick="openNav();" alt="sidebar">		<!--taskbar-button-->
+						<img src="images/sidebar-icon.png" height="59.7px" class="button side-nav" onclick="openNav();">
 
 					</nav>
 
-					<div class="header-body margin"></div>				<!--scalable margin; will replace later with javascript implementation-->
+					<div class="header-body margin"></div>
 
 				</div>
 
-				<!--Defines the rest of the content-->
 				<div class="main-body column">
 
-					<div class="row">
-					
-						<div class="main-body margin"></div>
-
-						<a id="form-block" class="body-element button square row" href="Lun_ElemPres_form.html" target="_blank">	<!--Form element link-->
-								<span class="large-carrot">&lt;</span>	
-								<p>FORM</p>
-								<span class="large-carrot">&gt;</span>
-						</a>
-
-						<a id="script-block" class="body-element button square row" href="Lun_ElemPres_script.html" target="_blank">	<!--Script element link-->
-							<span class="large-carrot">&lt;</span>	
-							<p>SCRIPT</p>
-							<span class="large-carrot">&gt;</span>
-						</a>
-
-						<div class="main-body margin"></div>
-
+					<div class="t-container-head row">
+						<p><span class="t-highlight">REFERENCES</span><span class="t-sub"> are listed all below.</span></p>
 					</div>
 
-				</div>
+					<div class="table-wrapper">
+						<div id="references" class="t-container-body t-container-list row">
+							<div class="t-container-element t-size3 t-solid"><p>REFERENCES</p></div>
+							<div class="t-container-element t-indent">
+								<div class="row">
+									<div class="t-container-element">
+									
+<pre class="t-highlight3">
+“CSS 2D Transforms.” W3schools.Com, https://www.w3schools.com/css/css3_2dtransforms.asp. Accessed 20 Sept. 2020.
 
-				<!--Defines footer with signature.-->
+“CSS Box-Sizing Property.” W3schools.Com, https://www.w3schools.com/CSSref/css3_pr_box-sizing.asp. Accessed 20 Sept. 2020.
+
+“CSS Buttons.” W3schools.Com, https://www.w3schools.com/css/css3_buttons.asp. Accessed 28 Sept. 2020.
+
+“CSS Flexbox (Flexible Box).” W3schools.Com, https://www.w3schools.com/css/css3_flexbox.asp. Accessed 28 Sept. 2020.
+
+“CSS @media Rule.” W3schools.Com, https://www.w3schools.com/cssref/css3_pr_mediaquery.asp. Accessed 28 Sept. 2020.
+
+“CSS Transitions.” W3schools.Com, https://www.w3schools.com/css/css3_transitions.asp. Accessed 25 Sept. 2020.
+
+“CSS Units.” W3schools.Com, https://www.w3schools.com/CSSref/css_units.asp. Accessed 28 Sept. 2020.
+
+“CSS Z-Index Property.” W3schools.Com, https://www.w3schools.com/cssref/pr_pos_z-index.asp. Accessed 28 Sept. 2020.
+
+“Document.GetElementByID Is Not a Function.” Stackoverflow.Com, https://stackoverflow.com/questions/6409505/document-getelement
+byid-is-not-a-function. Accessed 25 Sept. 2020.
+
+“Help: Using Greater-than and Less-than Symbols and HTML in Wiki Articles.” Khronos.Org, https://www.khronos.org/collada/wiki/
+Help:Using_greater-than_and_less-than_symbols_and_HTML_in_wiki_articles. Accessed 20 Sept. 2020.
+
+“How to Add an HTML Button That Acts like a Link.” W3docs.Com, https://w3docs.com/snippets/html/how-to-create-an-html-button-tha
+t-acts-like-a-link.html. Accessed 28 Sept. 2020.
+
+“How to Change the Color of PNG Image with CSS.” W3docs.Com, https://www.w3docs.com/snippets/css/how-to-change-the-color-of-png-
+image-using-css.html. Accessed 25 Sept. 2020.
+
+“How to Create a Full Screen Overlay Navigation.” W3schools.Com, https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp.
+ Accessed 28 Sept. 2020.
+
+“How to Create a Side Navigation Menu.” W3schools.Com, https://www.w3schools.com/howto/howto_js_sidenav.asp. Accessed 28 Sept. 2020.
+
+“How to Right-Align Flex Item?” Stackoverflow.Com, https://stackoverflow.com/questions/22429003/how-to-right-align-flex-item. 
+Accessed 28 Sept. 2020.
+
+“HTML Button Tag.” W3schools.Com, https://www.w3schools.com/TAGs/tag_button.asp. Accessed 25 Sept. 2020.
+
+“HTML Form Tag.” W3schools.Com, https://www.w3schools.com/TAGs/tag_form.asp. Accessed 28 Sept. 2020.
+
+“HTML Header Tag.” W3schools.Com, https://www.w3schools.com/tags/tag_header.asp. Accessed 28 Sept. 2020.
+
+“HTML Input Tag.” W3schools.Com, https://www.w3schools.com/TAGs/tag_input.asp. Accessed 28 Sept. 2020.
+
+“HTML Label Tag.” W3schools.Com, https://www.w3schools.com/TAGs/tag_label.asp. Accessed 28 Sept. 2020.
+
+“HTML Nav Tag.” W3schools.Com, https://www.w3schools.com/tags/tag_nav.asp. Accessed 28 Sept. 2020.
+
+“HTML Onresize Event Attribute.” W3schools.Com, https://www.w3schools.com/tags/ev_onresize.asp. Accessed 28 Sept. 2020.
+
+“HTML Responsive Web Design.” W3schools.Com, https://www.w3schools.com/html/html_responsive.asp. Accessed 28 Sept. 2020.
+
+“JavaScript DOM EventListener.” W3schools.Com, https://www.w3schools.com/js/js_htmldom_eventlistener.asp. Accessed 28 Sept. 2020.
+
+“Tryit Editor v3.6.” W3schools.Com, https://www.w3schools.com/js/tryit.asp?filename=tryjs_form_elements. Accessed 28 Sept. 2020.
+
+Walsh, David. “How to Get and Set CSS Variable Values with JavaScript.” Davidwalsh.Name, 8 Oct. 2018, https://davidwalsh.name/
+css-variables-javascript.</pre>
+										</pre>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 
 				<div class="footer row">
 					<span class="footer-element margin"></span>
@@ -93,6 +139,7 @@
 						<p>Made by Paris Lun.</p>
 					</span>
 				</div>
+
 
 			</div>
 
@@ -137,7 +184,7 @@
 						h_width -= 250;					// we can only retrieve the header width before the change as the event
 					}									// attribute triggers this function before it opens the sidebar
 					else {
-						if (h_width <700) {				// adds the siebar width back when it is closed
+						if (h_width <700) {				// adds the sidebar width back when it is closed
 							h_width += 250;
 						}
 					}
@@ -192,8 +239,6 @@
 				https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 				https://www.w3schools.com/tags/ev_onresize.asp
 				https://www.w3schools.com/css/css3_2dtransforms.asp
-				https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
-				https://html.spec.whatwg.org/multipage/forms.html#the-form-element
 
 			<>tags most Elements are (open and closed) tags; some are not
 			<b>Tags are read by the DOM= Browser and employ scripts to have text readout a certain format, design, programmed way </b>
@@ -205,3 +250,4 @@
 
 		</body>
 	</html>
+
