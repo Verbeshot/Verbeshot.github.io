@@ -57,11 +57,6 @@ a:visited {
 	color: #fff;
 }
 
-#header{
-	/*position: sticky;
-	top: 0;*/
-}
-
 .side-nav-element{
 	background-color: #D42A2A;
 	font-weight: 500;
@@ -129,16 +124,22 @@ a:visited {
 
 #form-block{
 	background-color: #D42A2A;
-	font-weight: 500;
-	font-size: 5rem;
 	color: #2AD4D4;
+	transition: 0.25s;
+}
+
+#form-block:hover{
+	color: #fff;
 }
 
 #script-block{
 	background-color: #2AD4D4;
-	font-weight: 500;
-	font-size: 5rem;
 	color: #D42A2A;
+	transition: 0.25s;
+}
+
+#script-block:hover{
+	color: #fff;
 }
 
 .square{
@@ -146,6 +147,8 @@ a:visited {
 	justify-content: center;
 	width: 50%;
 	height: 75vh;
+	font-weight: 500;
+	font-size: 5rem;
 }
 
 .button{
@@ -191,7 +194,7 @@ a:visited {
 	font-weight: 1000;
 }
 
-@media (max-aspect-ratio: 7/8) {
+@media (max-width: 717px) {
 	.header-body{
 		width: auto;
 		height: 59.6px;

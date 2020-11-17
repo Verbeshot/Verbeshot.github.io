@@ -22,14 +22,14 @@ input[type=button] {
 }
 
 .t-container-head {
+	flex-flow: wrap;
 	height: auto;
-	font-size: 5rem;
 	padding: 0px var(--margin-hz);
+	align-items: baseline;
 }
 
 .t-highlight{
 	background-color: var(--primary-color);
-	width: auto;
 }
 
 .t-highlight2{
@@ -80,9 +80,11 @@ input[type=button] {
 	margin-bottom: 20px;
 }
 
-.t-sub {
+#t-sub {
+	margin-left: 20px;
 	font-style: italic;
-	font-size: 0.3em;
+	font-size: 1.5rem;
+	overflow: hidden;
 }
 
 .t-solid {
@@ -126,6 +128,7 @@ input[type=button] {
 }
 .t-container-list > div{
 	flex: 0 1 250px;
+	min-width: auto;
 }
 
 .t-container-list div:last-child{
@@ -170,8 +173,9 @@ input[type=button] {
 }
 
 #MDN-link{
-	background-color: var(--secondary-color);
 	margin-left: auto;
+	background-color: var(--secondary-color);
+	min-width: auto;
 	align-self: center;
 	font-size: 3rem;
 	padding: 5px;
@@ -180,5 +184,17 @@ input[type=button] {
 
 #MDN-link:hover{
 	background-color: var(--primary-color);
-	padding: 3px;
+}
+
+.t-container-list > div > div > div {
+	flex: 4 1 auto;
+	min-width: auto;
+}
+
+.t-container-head > * {
+	flex: 0 1 auto;
+}
+
+.overflow-box {
+	overflow: scroll;
 }

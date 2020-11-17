@@ -2,13 +2,19 @@
 	<html>
 		<head>
 
-			<title>Lun_Elem_Pres Script</title>
+			<title>Lun_Elem_Pres References</title>
 
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"> 
 
 			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres.css">
 			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres_t-containers.css">
-			<link rel="stylesheet" type="text/css" href="css/Lun_ElemPres_script.css">
+			
+			<style>
+				:root {
+					--primary-color: #D42A2A;
+					--secondary-color: #2AD4D4;
+				}
+			</style>
 
 		</head>
 
@@ -17,7 +23,7 @@
 			<div id="side-nav" class="column">
 					
 						<a href="#" class="button close" onclick="closeNav();">&times;</a>
-						<a class="side-nav-element button" href="index.html">home</a>
+						<a class="side-nav-element button" href="Lun_ElemPres_index.html">home</a>
 						<a class="side-nav-element button" href="Lun_ElemPres_form.html">form</a>
 						<a class="side-nav-element button" href="Lun_ElemPres_script.html">script</a>
 						<a class="side-nav-element button" href="Lun_ElemPres_references.html">references</a>
@@ -31,21 +37,21 @@
 					<div class="header-body margin"></div>
 
 					<div class="logo">
-						<a href="index.html"><img class="logo" src="images/logo4.png" height="100px"></a>
+						<a href="Lun_ElemPres_index.html"><img class="logo" src="images/Lun_logo4.png" height="100px"></a>
 					</div>
 
 					<nav class="header-body row">
 						
 						<div class="header-element"></div>
 
-						<a class="header-element button" href="index.html">home</a>
+						<a class="header-element button" href="Lun_ElemPres_index.html">home</a>
 						<a class="header-element button" href="Lun_ElemPres_form.html">form</a>
 						<a class="header-element button" href="Lun_ElemPres_script.html">script</a>
 						<a class="header-element button active" href="Lun_ElemPres_references.html">references</a>
 
 						<div class="header-element"></div>
 
-						<img src="images/sidebar-icon.png" height="59.7px" class="button side-nav" onclick="openNav();">
+						<img src="images/Lun_sidebar-icon.png" height="59.7px" class="button side-nav" onclick="openNav();">
 
 					</nav>
 
@@ -55,9 +61,17 @@
 
 				<div class="main-body column">
 
-					<div class="t-container-head row">
-						<p><span class="t-highlight">REFERENCES</span><span class="t-sub"> are listed all below.</span></p>
+					<div id="t-container-head" class="t-container-head row">
+						<p><span class="t-highlight t-size1">&lt;REFERENCES&gt;</span></p>
+						<p><span id="t-sub">are all listed below.</span></p>
 					</div>
+
+					<!--Notifies the user if javascript has been turned off.-->
+					<noscript>
+						<div class="t-container-body t-frame t-highlight3">
+							<p>Your Browser Does Not Support Javascript or It's Been Turned Off.</p>
+						</div>
+					</noscript>
 
 					<div class="table-wrapper">
 						<div id="references" class="t-container-body t-container-list row">
@@ -140,19 +154,21 @@ css-variables-javascript.</pre>
 					</span>
 				</div>
 
-
 			</div>
 
+		<!--Script that opens and closes the sidebar-->
 			<script>
 
-				//added this flag to dynamically respond to opening and closing of the sidebar
-				let is_sidebar_open = false;
+				let is_sidebar_open = false;		//added this flag to dynamically respond to opening and closing of the sidebar
+				let sidebar_flag = true;			//this is used to fix a bug. That bug is still there if you use the sidebar too 
+													//much, but it helps a bit.
 
 				//opens sidebar
 				function openNav() {
 					document.getElementById("side-nav").style.width = "250px";
 					document.getElementById("wrapper").style.marginRight = "250px";
 					is_sidebar_open = true;
+					sidebar_flag = false;
 					responsiveFunction();
 				}
 
@@ -167,14 +183,20 @@ css-variables-javascript.</pre>
 			</script>
 
 			<!--
-			The following script was repurposed from Krishna's answer in the following Stack Overflow link:
+			The following script was due to in part by Krishna's answer in the following Stack Overflow link:
 			https://stackoverflow.com/questions/31974582/difference-between-document-getelementbyid-and-document-getelementsbyclassname
 			
-			We use it to dynamically remove the header elements when the width of the header is below 600px.
+			We use it to dynamically change entire classes in js instead of media queries.
 			-->
 			<script>
 
+				//assigns objects to html elements
 				let h_element = document.getElementsByClassName('header-element');
+				let t_head = document.getElementById('t-container-head');
+				let t_bodies = document.getElementsByClassName('t-container-body');
+				let t_lists = document.getElementsByClassName('t-container-list');
+				let t_sub = document.getElementById('t-sub');
+				let init_h_width = window.screen.width;
 
 				function responsiveFunction() {
 
@@ -183,29 +205,73 @@ css-variables-javascript.</pre>
 					if (is_sidebar_open == true) {		// subtracts the sidebar width from the header width
 						h_width -= 250;					// we can only retrieve the header width before the change as the event
 					}									// attribute triggers this function before it opens the sidebar
-					else {
-						if (h_width <700) {				// adds the sidebar width back when it is closed
+
+					if (is_sidebar_open == false && sidebar_flag == false) {
+						if (h_width <700) {				// adds the siebar width back when it is closed
 							h_width += 250;
 						}
 					}
+
+					let dynamic_margin = 100*(h_width/init_h_width)**(2);		//dynamically resizes margins
 
 					// The following hides the nav links when the window gets too small
 					// I have not tested this on different screen sizes
 					// Should probably base it off aspect ratio
 
-					if (h_width < 700) {
-					
+					if (h_width < 800) {
+
+						document.documentElement.style.setProperty('--margin-hz', '10px');
+						document.documentElement.style.setProperty('--margin-vt-m', '40px');
+						t_head.style.display = "block";
+						t_head.style.textAlign = "center";
+						t_sub.style.marginLeft = "0px";
+
+
 						for (var i = 0; i < h_element.length; i++){	 	// iterates between the items in the output array
 							h_element[i].style.display = "none";		// of getElementsByClassName
 						} 
+
+						for (var i = 0; i < t_bodies.length; i++){	 	// iterates between the items in the output array
+							t_bodies[i].style.flexDirection = "column";		// of getElementsByClassName
+						} 
+
+						for (var i = 0; i < t_lists.length; i++){	 	// iterates between the items in the output array
+							t_lists[i].style.padding = "0px";		// of getElementsByClassName
+						} 
 					}
+
 					else {
+
+						document.documentElement.style.setProperty('--margin-hz', dynamic_margin.toString() + "px");
+						document.documentElement.style.setProperty('--margin-vt-m', '75px');
+						t_head.style.display = "flex";
+						t_head.style.textAlign = "left";
+						t_sub.style.marginLeft = "20px";
+
 						for (var i = 0; i < h_element.length; i++){
 							h_element[i].style.display = "block";
 						}
+
+						for (var i = 0; i < t_bodies.length; i++){	 	// iterates between the items in the output array
+							t_bodies[i].style.flexDirection = "row";		// of getElementsByClassName
+						} 
+
+						for (var i = 0; i < t_lists.length; i++){	 	// iterates between the items in the output array
+							t_lists[i].style.padding = "50px";		// of getElementsByClassName
+						} 
+
+						document.getElementById('e-attributes').style.padding = "0px 50px 0px 50px";
+						document.getElementById('g-attributes').style.padding = "0px 50px 0px 50px";
+						document.getElementById('attributes').style.padding = "50px 50px 0px 50px";
 					}
 
-				//	alert(h_width);
+					if (h_width < 1250) {
+						t_head.style.alignItems = "center";
+					}
+
+					if (h_width >= 1250) {
+						t_head.style.alignItems = "baseline";
+					}
 				}
 
 			</script>

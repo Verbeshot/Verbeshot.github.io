@@ -1,0 +1,150 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+	--dgray-1: #333;
+	--mgray-1: #474747;
+	--mgray-2: #666;
+	--lgray-1: #999;
+	--lgray-2: #aaa;
+	--white: #fff;
+	--black-1: #222222;
+	--iconFill: var(--lgray-1);
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+body {
+	box-sizing: border-box;
+	font-family: Helvetica Neue, Helvetica, Arial, "Roboto", sans-serif;
+	margin: 0;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+	color: var(--black-1);
+	cursor: pointer;
+}
+
+/*------------------------------------------------------------NAVIGATION-BAR----------------------------------------------------------------------*/
+
+#topnav {
+	color: var(--lgray-1);
+	fill: var(--lgray-1);
+}
+
+#topnav a {
+	color: var(--lgray-1);
+}
+
+#topnav a:hover {
+	color: var(--white);
+	fill: var(--white);
+}
+
+/*TOP BAR*/
+
+#main-nav > nav{
+	background-color: var(--black-1);
+	display: flex;
+	width: 100vw;
+	align-items: center;
+}
+
+#main-nav  > nav > *{
+	flex: 0 0 auto;
+}
+
+.nav-item {
+	display: flex;
+	align-items: center;
+	padding: 0px 4px;
+	text-align: center;
+}
+
+#home-button {
+	padding: 10px 10px 10px 13px;
+}
+
+#home-button svg:first-child {
+	margin-right: 15.55px;
+}
+
+#media-dropdowns .fill-color{
+	fill: var(--lgray-1);
+}
+
+#media-dropdowns a:hover .fill-color{
+	fill: var(--white);
+}
+
+.nav-right {
+	margin-left: auto;
+}
+
+#upload {
+	float: right;
+	margin-right: 10px;
+}
+
+#account {
+	float: right;
+}
+
+/*BOTTOM BAR*/
+
+#sub-nav {
+	background-color: var(--dgray-1);
+	display: flex;
+	color: var(--lgray-2);
+	width: 100vw;
+	padding: 8px 0px;
+	font-size: 12px;
+}
+
+#sub-nav nav {
+	display: flex;
+	flex-flow: row;
+	margin: 0px auto;
+	align-items: center;
+}
+
+#sub-nav nav span {
+	padding: 0px 15px;
+}
+
+#sub-nav .nav-item {
+	text-transform: uppercase;
+	line-height: 17.15px;
+	padding: 0px;
+}
+
+#donate svg {
+	margin-left: 2px;
+    width: 16px;
+    height: 16px;
+    fill: #f00;
+}
+
+/*-----------------------------------------------------WAYBACK MACHINE-------------------------------------------------------------*/
+
+#wayback-search {
+	background-color: var(--mgray-2);
+	margin: auto;
+}
+
+#wayback-search form {
+	margin: 0;
+}
+
+#wayback-search fieldset {
+	border: none;
+	background-color: #fcf5e6;
+	box-shadow: 3px 3px 0 0 #c3ad97;
+	border-radius: 7px;
+}
+
+#wb-logo {
+
+}
