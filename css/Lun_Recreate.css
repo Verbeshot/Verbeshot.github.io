@@ -30,6 +30,7 @@ All icons that uses this custom font will be replaced by recreations in the fina
 	--yellow-1: #ffcd27;
 	--orange-1: #faab3c;
 	--red-1: #f1644b;
+	--red-2: #f00;
 	--green-1: #9ecc4f;
 	--violet-1: #aa99c9;
 	--blue-1: #428bca;
@@ -38,12 +39,15 @@ All icons that uses this custom font will be replaced by recreations in the fina
 	--blue-4: #4A90E2;
 	--blue-5: #00adef;
 	--blue-6: #4a90e2;
+	--beige-1: #fcf5e6;
+	--beige-2: #c3ad97;
 	--dgray-1: #333;
 	--dgray-2: #222;
 	--dgray-3: #444;
 	--mgray-1: #474747;
 	--mgray-2: #666;
 	--mgray-3: #555;
+	--mgray-4: #858585;
 	--lgray-1: #999;
 	--lgray-2: #aaa;
 	--lgray-3: #ccc;
@@ -122,7 +126,7 @@ p, h2, h3, h4 {
 	border-radius: 20px;
 	padding: 5px 10px 5px 25px;
 	height: 30px;
-	color: #858585;
+	color: var(--mgray-4);
 }
 
 .iconochive {
@@ -236,7 +240,7 @@ p, h2, h3, h4 {
 	margin-left: 2px;
     width: 16px;
     height: 16px;
-    fill: #f00;
+    fill: var(--red-2);
 }
 
 /*-----------------------------------------------------WAYBACK MACHINE-------------------------------------------------------------*/
@@ -267,8 +271,8 @@ p, h2, h3, h4 {
 	margin: auto;
 	text-align: center;
 	border: none;
-	background-color: #fcf5e6;
-	box-shadow: 3px 3px 0 0 #c3ad97;
+	background-color: var(--beige-1);
+	box-shadow: 3px 3px 0 0 var(--beige-2);
 	border-radius: 7px;
 	padding: 7px 20px;
 }
@@ -285,9 +289,9 @@ p, h2, h3, h4 {
 
 #wb-searchbox input{
 	font-size: 12px;
-	background-color: #eee;
+	background-color: var(--lgray-4);
 	padding: 5px 10px 5px 25px;
-	color: #858585;
+	color: var(--mgray-4);
 }
 
 #wb-searchbox svg{
