@@ -1,30 +1,141 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/*The following is a font made specifically by the Internet Archive web developers to use to display svg icons without having to include the svgs in the code.
+All icons that uses this custom font will be replaced by recreations in the final draft.*/
+
+@font-face {
+	font-family:Iconochive-Regular;
+	src:url("https://archive.org/includes/fonts/Iconochive-Regular.eot?-ccsheb");
+	src:url("https://archive.org/includes/fonts/Iconochive-Regular.eot?#iefix-ccsheb") format("embedded-opentype"),
+	url("https://archive.org/includes/fonts/Iconochive-Regular.woff?-ccsheb") format("woff"),
+	url("https://archive.org/includes/fonts/Iconochive-Regular.ttf?-ccsheb") format("truetype"),
+	url("https://archive.org/includes/fonts/Iconochive-Regular.svg?-ccsheb#Iconochive-Regular") format("svg");
+	font-weight:400;
+	font-style:normal
+   }
+   [class*=" iconochive-"],
+   [class^=iconochive-] {
+	font-family:Iconochive-Regular;
+	font-style:normal;
+	font-weight:400;
+	font-variant:normal;
+	text-transform:none;
+	line-height:1;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale
+   }
+
 :root {
+	--yellow-1: #ffcd27;
+	--orange-1: #faab3c;
+	--red-1: #f1644b;
+	--green-1: #9ecc4f;
+	--violet-1: #aa99c9;
+	--blue-1: #428bca;
+	--blue-2: #2a6496;
+	--blue-3: #8EB8EA;
+	--blue-4: #4A90E2;
+	--blue-5: #00adef;
+	--blue-6: #4a90e2;
 	--dgray-1: #333;
+	--dgray-2: #222;
+	--dgray-3: #444;
 	--mgray-1: #474747;
 	--mgray-2: #666;
+	--mgray-3: #555;
 	--lgray-1: #999;
 	--lgray-2: #aaa;
+	--lgray-3: #ccc;
+	--lgray-4: #eee;
+	--lgray-5: #979797;
 	--white: #fff;
+	--black: #000;
 	--black-1: #222222;
 	--iconFill: var(--lgray-1);
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
-body {
+* {
 	box-sizing: border-box;
+}
+
+body {
 	font-family: Helvetica Neue, Helvetica, Arial, "Roboto", sans-serif;
 	margin: 0;
 	font-size: 14px;
+	background-color: var(--lgray-4);
 }
 
 a {
 	text-decoration: none;
 	color: var(--black-1);
 	cursor: pointer;
+}
+
+input, button {
+	font-family: Helvetica Neue, Helvetica, Arial, "Roboto", sans-serif;
+}
+
+button {
+	cursor: pointer;
+}
+
+p, h2, h3, h4 {
+	margin: 0;
+}
+
+/*------------------------------------------------------------GENERAL-CLASSES----------------------------------------------------------------------*/
+
+.row {
+	display: flex;
+}
+
+.full-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bold {
+	font-weight: 800;
+}
+
+.icon-label {
+	color: var(--lgray-1);
+	font-size: 10px;
+	font-weight: 200;
+	font-family: Helvetica Neue, Helvetica, Arial, "Roboto", sans-serif;
+}
+
+.searchbox {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.searchbox input {
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid var(--lgray-3);
+	border-radius: 20px;
+	padding: 5px 10px 5px 25px;
+	height: 30px;
+	color: #858585;
+}
+
+.iconochive {
+	font-family: Iconochive-Regular;
+	font-size: 34px;
+}
+
+.rfloat {
+	float: right;
+}
+
+.lfloat {
+	float: left;
 }
 
 /*------------------------------------------------------------NAVIGATION-BAR----------------------------------------------------------------------*/
@@ -36,6 +147,7 @@ a {
 
 #topnav a {
 	color: var(--lgray-1);
+	fill: var(--lgray-1);
 }
 
 #topnav a:hover {
@@ -48,7 +160,7 @@ a {
 #main-nav > nav{
 	background-color: var(--black-1);
 	display: flex;
-	width: 100vw;
+	width: 100%;
 	align-items: center;
 }
 
@@ -98,7 +210,7 @@ a {
 	background-color: var(--dgray-1);
 	display: flex;
 	color: var(--lgray-2);
-	width: 100vw;
+	width: 100%;
 	padding: 8px 0px;
 	font-size: 12px;
 }
@@ -129,22 +241,345 @@ a {
 
 /*-----------------------------------------------------WAYBACK MACHINE-------------------------------------------------------------*/
 
-#wayback-search {
+#wb-container {
 	background-color: var(--mgray-2);
+	padding: 15px 15px 50px 15px;
+}
+
+#wb-container form {
+	box-sizing: border-box;
 	margin: auto;
+	width: 600px;
 }
 
-#wayback-search form {
-	margin: 0;
+#wb-container p {
+	color: var(--white);
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 30px;
 }
 
-#wayback-search fieldset {
+#wb-container p > a {
+	color: var(--white);
+}
+
+#wb-container fieldset {
+	margin: auto;
+	text-align: center;
 	border: none;
 	background-color: #fcf5e6;
 	box-shadow: 3px 3px 0 0 #c3ad97;
 	border-radius: 7px;
+	padding: 7px 20px;
 }
 
 #wb-logo {
+	width: 50%;
+}
 
+#wb-searchbox {
+	display: flex;
+	align-items: center;
+	width: 50%;
+}
+
+#wb-searchbox input{
+	font-size: 12px;
+	background-color: #eee;
+	padding: 5px 10px 5px 25px;
+	color: #858585;
+}
+
+#wb-searchbox svg{
+	width: 28px;
+	width: 28px;
+	position: absolute;
+	left: 1px;
+}
+
+/*-----------------------------------------------------Terms of Service Footer-------------------------------------------------------------*/
+
+#footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100vw;
+	background-color: var(--dgray-2);
+	opacity: 0.9;
+	text-align: center;
+	height: 20px;
+}
+
+#footer:hover {
+	opacity: 1;
+}
+
+#footer a {
+	color: var(--white);
+	font-size: 11px;
+}
+
+/*-----------------------------------------------------Salutations Box-------------------------------------------------------------*/
+
+									/*------------Internet Archive Emblem------------*/
+
+#ia-lower-container {
+	width: 1170px;
+	margin: auto;
+}
+
+#ia-salutation {
+	background-color: var(--white);
+	margin-top: 20px;
+	padding: 30px 10px;
+}
+
+#ia-logo-large {
+	width: 25%;
+	text-align: center;
+}
+
+#ia-logo-large svg{
+	width: 125px;
+	height: 125px;
+}
+
+#ia-logo-large .fill-color {
+	fill: var(--dgray-1);
+}
+
+									/*------------Center of Attention------------*/
+
+#center-of-attention {
+	padding: 0px 40px;
+	width: 50%;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: var(--lgray-2);
+}
+
+#ia-blurb {
+	line-height: 1.1;
+	font-size: 26px;
+}
+
+#icon-nav {
+	font-family: Iconochive-Regular;
+	font-size: 34px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#icon-nav div {
+	margin: 3px 6.5px;
+}
+
+#web-icon p:first-child {
+	color: var(--yellow-1);
+}
+
+#book-icon p:first-child {
+	color: var(--orange-1);
+}
+
+#movie-icon p:first-child {
+	color: var(--red-1);
+}
+
+#audio-icon p:first-child {
+	color: var(--blue-5);
+}
+
+#tv-icon p:first-child {
+	color: var(--red-1);
+}
+
+#software-icon p:first-child {
+	color: var(--violet-1);
+}
+
+#concerts-icon p:first-child {
+	color: var(--blue-5);
+}
+
+#images-icon p:first-child {
+	color: var(--yellow-1);
+}
+
+#collections-icon p:first-child {
+	color: var(--blue-1);
+}
+
+#icon-nav a:hover > div > p:first-child{
+	color: var(--blue-6);
+}
+
+#icon-nav a:hover > div > p:last-child{
+	color: var(--black);
+}
+
+#ia-search {
+	width: 100%;
+	justify-content: space-between;
+	padding: 4.8px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+#ia-search > div {
+	width: 100%;
+}
+
+#ia-searchbox input {
+	font-size: 18px;
+	padding: 5px 10px 5px 30px;
+}
+
+#ia-searchbox svg {
+	width: 23px;
+	height: 23px;
+	position: absolute;
+	left: 3px;
+	fill: var(--lgray-1);
+}
+
+#ia-search > div > a {
+	color: var(--blue-1);
+	margin-top: 7px;
+	margin-bottom: 20px;
+}
+
+#ia-search > div > a:hover {
+	color: var(--blue-2);
+	text-decoration: underline;
+}
+
+#ia-search-btn {
+	align-self: flex-start;
+	padding: 6px 12px;
+	color: var(--white);
+	border-width: 0px;
+	border-radius: 20px;
+	background-color: var(--black);
+	font-weight: 700;
+	margin-left: 15px;
+	height: 30px;
+}
+
+#ia-search-btn:hover {
+	background-color: var(--dgray-1);
+}
+
+									/*------------Announcements Panel------------*/
+
+#anno-panel {
+	width: 25%;
+	align-self: flex-start;
+	padding: 0px 40px;
+	color: var(--dgray-1);
+}
+
+#anno-panel * {
+	margin-bottom: 10px;
+	line-height: 20px;
+}
+
+#anno-panel h4 {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+#anno-body {
+	font-size: 12px;
+}
+
+#anno-body a:hover {
+	text-decoration: underline;
+}
+
+#anno-see-more {
+	color: var(--lgray-5);
+}
+
+/*-----------------------------------------------------Collections Cards-------------------------------------------------------------*/
+
+#ia-collections-title h3 {
+	margin: 20px 0px 10px 0px;
+	font-size: 24px;
+	font-weight: 200;
+}
+
+#cards-container {
+	margin: 0px 100px;
+}
+
+.cards-row {
+	justify-content: space-between;
+}
+
+.cards-row > a{
+	margin-bottom: 30px;
+}
+
+.collcrd {
+	background-color: var(--lgray-5);
+	color: var(--white);
+	border-radius: 4px;
+	padding-top: 20px;
+	width: 180px;
+}
+
+.collcrd:hover {
+	background-color: var(--blue-3);
+}
+
+.collcrd:hover > .collcrd-footer {
+	background-color: var(--blue-4);
+}
+
+.collcrd:hover .collcrd-title {
+	text-decoration: underline;
+}
+
+.collcrd-icon {
+	width: 90px;
+	height: 90px;
+	border-radius: 45px;
+	background-color: var(--blue-1);
+	margin: 15px;
+	margin-top: 0px;
+}
+
+.collcrd-title {
+	font-size: 18px;
+	font-weight: 100;
+	margin: 0px 15px 35px 15px;
+}
+
+.collcrd-footer {
+	background-color: var(--dgray-3);
+	align-items: center;
+	position: relative;
+	padding: 8px 15px;
+	border-radius: 0px 0px 4px 4px;
+}
+
+.collcrd-footer:hover {
+	background-color: var(--blue-4);
+}
+
+.collcrd-footer:hover ~ div {
+	text-decoration: underline;
+}
+
+.collcrd-footer > p {
+	position: relative;
+	bottom: 5px;
+}
+
+.collcrd-stats {
+	margin-left: 10px;
+}
+
+.collcrd .icon-label {
+	color: var(--white);
 }
