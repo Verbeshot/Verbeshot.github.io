@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>IA</title>
+
+	<!--Scales the website for mobile devices and specifies the charset-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="css/Lun_Redesign.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<link rel="SHORTCUT ICON" href="images/Lun_Archive-Logo-A.svg">
+
+	<style>
+	</style>
+
+</head>
+
+<body>
+
+	<div id="sub-nav" class="topnav">
+		<nav>
+			<span>
+				<a id="about" class="nav-item" href="https://archive.org/about/">About</a>
+			</span>
+
+			<span>
+				<a id="blog" class="nav-item" href="https://blog.archive.org/">Blog</a>
+			</span>
+
+			<span>
+				<a id="projects" class="nav-item" href="https://archive.org/projects/">Projects</a>
+			</span>
+
+			<span>
+				<a id="help" class="nav-item" href="https://archive.org/about/faqs.php">Help</a>
+			</span>
+
+			<span>
+				<a id="donate" class="nav-item" href="https://archive.org/donate">Donate</a>
+			</span>
+
+			<span>
+				<a id="contact" class="nav-item" href="https://archive.org/about/contact.php">Contact</a>
+			</span>
+
+			<span>
+				<a id="jobs" class="nav-item" href="https://archive.org/about/jobs.php">Jobs</a>
+			</span>
+
+			<span>
+				<a id="volunteer" class="nav-item"
+					href="https://archive.org/about/volunteerpositions.php">Volunteer</a>
+			</span>
+
+			<span>
+				<a id="people" class="nav-item" href="https://archive.org/about/bios.php">People</a>
+			</span>
+		</nav>
+	</div>
+
+	<div id="main-nav" class="topnav">
+		<!--Primary Navigation Bar-->
+		<nav class="full-center">
+			<a id="home-button" class="nav-item" href="Lun_Redesign_index.html">
+
+				<!--SVG of logo and title I made-->
+				<img src="images/Lun_Archive-Logo-A.svg" alt="New Archive Logo: Three Books Viewed from an Angled Perspective that Represent the Columns of the Original" height="30">
+				<span id="archive-logo_text_RDSN" class="unselectable">Internet Archive</span>
+				
+			</a>
+
+			<nav id="nav-search-container">
+
+				<a id="button_categories" onclick="dropdownFunction_CTG()" class="lfloat button color-theme_A full-center">
+					CATEGORIES
+					<div class="triangle_up"></div>
+				</a>
+
+				<nav id="media-dropdown" class="full-center">
+					<!--WEB-->
+					<a class="nav-item" href="https://archive.org/web" target="_blank">
+						<span class="label-1">WEB</span>
+					</a>
+					<!--BOOKS-->
+					<a class="nav-item" href="https://archive.org/details/texts" target="_blank">
+						<span class="label-1">BOOKS</span>
+					</a>
+					<!--VIDEO-->
+					<a class="nav-item" href="https://archive.org/details/movies" target="_blank">
+						<span class="label-1">VIDEO</span>
+					</a>
+					<!--AUDIO-->
+					<a class="nav-item" href="https://archive.org/details/audio" target="_blank">
+						<span class="label-1">AUDIO</span>
+					</a>
+					<!--SOFTWARE-->
+					<a class="nav-item" href="https://archive.org/details/software" target="_blank">
+						<span class="label-1">SOFTWARE</span>
+					</a>
+					<!--IMAGES-->
+					<a class="nav-item" href="https://archive.org/web/images" target="_blank">
+						<span class="label-1">IMAGES</span>
+					</a>
+				</nav>
+
+				<div id="nav-searchbox" class="searchbox">
+					<input type="text" name="ia-search-input" id="ia-search-input" placeholder="Search">
+					<img src="images/Lun_search-icon.svg" alt="Search Icon: Magnifying Glass" class="unselectable">
+				</div>
+
+			</nav>
+
+			<div class="nav-right row">
+
+				<a id="upload" class="nav-item" href="https://archive.org/create">
+
+					<img id="upload-icon" src="images/Lun_upload-icon.svg" alt="Upload Icon: Plus Sign">
+					<span>UPLOAD</span>
+				</a>
+
+				<span id="account" class="nav-item">
+						<a href="Lun_Redesign_login.html" class="button color-theme_A">LOG IN</a>
+						<a href="Lun_Redesign_signup.html" class="button color-theme_B">SIGN UP</a>
+				</span>
+
+			</div>
+		</nav>
+	</div>
+
+	<div id="ia-salutation" class="row full-center">
+		<!--Welcomes you to the website-->
+		<div id="center-of-attention">
+			<div id="ia-blurb">
+				<p>Welcome to The Internet Archive</p>
+			</div>
+		</div>
+		<!--Makes the logo a large background element-->
+		<div id="background-pillars" class="unselectable">
+			<img src="images/Lun_Archive-Logo-B.svg" alt="New Archive Logo: Three Books Viewed from an Angled Perspective that Represent the Columns of the Original">
+		</div>
+
+	</div>
+
+	<main id="main-content">
+		<div class="wrapper">
+			<div id="wb-container">
+				<!--Link to WB Machine-->
+				<a id="wb-logo" onmouseover="waybackTransform()" href="Lun_Redesign_wb.html" target="_blank">
+					WAYBACK MACHINE
+				</a>
+				<div id="wb-container2" class="rfloat">
+					<p>Search the history of over 486 billion web pages on the Internet.</p>
+					<div id="wb-searchbox" class="searchbox">
+						<input type="text" name="wb-search-input" id="wb-search-input"
+							placeholder="enter URL or keywords">
+						<img src="images/Lun_search-icon.svg" alt="magnifying glass" height="30">
+					</div>
+				</div>
+			</div>
+			<div id="wb-container-abs"></div>
+		</div>
+
+		<div id="ia-lower-container">
+
+			<div id="ia-collections-cards">
+				<div id="ia-collections-title">
+					<h3>FEATURED COLLECTIONS</h3>
+				</div>
+
+				<div id="cards-container">
+					<!--Row of Cards-->
+					<div class="row cards-row">
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-A.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Community Video</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">522345</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-C.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Community Audio</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">6547373</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-G.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Very Big Collection</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">95857</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-F.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Too Secret To be Secret</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">628056</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-B.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Gradually Growing Collection</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">899</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-H.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Slow Moving Collection</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">598</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-D.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Super Tall People</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">5823955</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+
+					<!--Row of Cards-->
+					<div class="row cards-row">
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-E.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">The 90's Greatest Hits</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">22</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-D.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">The 80's Greatest Hits</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">55</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-A.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">For Destressing Only</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">53802</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-F.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Nothing Inside</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">0</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-C.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Pictures of Spiderman</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">18235</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-G.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Dreamcast Simulators</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">927</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-E.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Personal Journals</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">2665</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+
+					<!--Row of Cards-->
+					<div class="row cards-row">
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-C.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Timothy's Favorite Archive</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">12495</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-F.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Newspapers out of Publication</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">1923753</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-C.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Nothing Inside Again</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">1</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-A.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Just Nothing to Find</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">2</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-G.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Old Bluegrass Library</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">8368</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-A.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">A History of Fish Oil</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">3520</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<a href="Lun_Redesign_error.html">
+							<div class="collcrd">
+								<div>
+									<div class="collcrd-icon full-center">
+										<img src="images/Lun_misc-icon-H.png" alt="icon of a shape" height="80">
+									</div>
+									<p class="collcrd-title">Public Records</p>
+								</div>
+
+								<div class="collcrd-footer row">
+									<img src="images/Lun_collections-icon.png" alt="icon of a list" height="40">
+									<div class="collcrd-stats">
+										<p class="rand-number">155553</p>
+										<p class="icon-label">ITEMS</p>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<a href='https://archive.org/about/terms.php'>Created By Paris Lun, plun678@gmail.com | Terms of Service (Last Updated 1/20/21)</a>
+		</div>
+	</main>
+
+	<script src="js/Lun_sticky.js"></script> <!--Makes a sticky nav-->
+	<script src="js/Lun_category-dropdown.js"></script> <!--Dropdown Nav when clicked-->
+	<script src="js/Lun_waybackanimation.js"></script> <!--Animates the large background element-->
+
+	<!--
+	------------------------------------------------------------------BIBLIOGRAPHY------------------------------------------------------------------
+
+	Corbpie. “Using Custom .Ttf or .Otf Fonts in Css and Html.” Corbpie, 13 Jan. 2018, write.corbpie.com/using-custom-ttf-or-otf-fonts-in-css-and-html/.
+
+	Coyier, Chris. “How to Italicize Text.” CSS-Tricks, 17 July 2020, css-tricks.com/how-to-italicize-text/.
+
+	Microsoft. “Visual Studio Code.” Visual Studio, 14 Apr. 2016, code.visualstudio.com/.
+
+	Mozilla Corporation. “Firefox Developer Edition.” Mozilla, www.mozilla.org/en-US/firefox/developer/.
+
+	Shelton, Jim. “Internet Archive.” Archive.org, 2016, archive.org/.
+
+	Simmonds, Mike. “How to Affect Other Elements When One Element Is Hovered.” Stack Overflow, Stack Exchange Inc., 1 Feb. 2017,
+
+	stackoverflow.com/questions/4502633/how-to-affect-other-elements-when-one-element-is-hovered.
+
+	W3 Schools. “CSS Flexbox Container.” Refsnes Data, www.w3schools.com/css/css3_flexbox_container.asp#justify-content.
+
+	W3 Schools. “CSS Gradients.” Refsnes Data, www.w3schools.com/css/css3_gradients.asp.
+
+	W3 Schools. “CSS Layout - The Position Property.” Refsnes Data, 2020, www.w3schools.com/css/css_positioning.asp.
+
+	W3 Schools. “CSS Line-Height Property.” Refsnes Data, www.w3schools.com/cssref/pr_dim_line-height.asp.
+
+	W3 Schools. “CSS Rgba() Function.” Refsnes Data, www.w3schools.com/cssref/func_rgba.asp.
+	
+	W3 Schools. “CSS Selectors Reference.” Refsnes Data, 2019, www.w3schools.com/cssref/css_selectors.asp.
+	
+	W3 Schools. “CSS Text-Shadow Property.” Refsnes Data, www.w3schools.com/cssref/css3_pr_text-shadow.asp.
+	
+	W3 Schools. “CSS Transform Property.” Refsnes Data, www.w3schools.com/cssref/css3_pr_transform.asp.
+	
+	W3 Schools. “Tryit Editor: Web Based Fonts.” Refsnes Data, www.w3schools.com/howto/tryit.asp?font=Roboto.
+	
+	Wärting, Jimmy. “Online Font Converter.” Onlinefontconverter.com, onlinefontconverter.com/.
+	
+	Wasai. “Lorem Ipsum.” Lorem Ipsum, 2020, loremipsum.io/.
+	
+	What Font is. “Font Finder by What Font Is.” What Font Is, www.whatfontis.com/?s3.
+	
+	Jessica, "4 reasons your z-index isn’t working (and how to fix it)." Coder Coder, 25 Apr. 2019, https://coder-coder.com/z-index-isnt-working.
+
+	Mozilla Corporation. "Adding vector graphics to the Web." MDN Web Docs, Mozilla, developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web.
+
+	Google LLC. "Brand element guidelines." Google Brand Resource Center, Google, about.google/brand-resource-center/brand-elements.
+
+	W3 Schools. "CSS Outline." W3Schools, www.w3schools.com/css/css_outline.asp.
+
+	Coyier, Chris. "The Shapes of CSS." CSS-Tricks, 13 Jan. 2021, css-tricks.com/the-shapes-of-css.
+
+	W3 Schools. "How TO - Clickable Dropdown." W3Schools, www.w3schools.com/howto/howto_js_dropdown.asp.
+
+	W3 Schools. "How TO - Sticky/Affix Navbar." W3Schools, www.w3schools.com/howto/howto_js_navbar_sticky.asp.
+
+	jmasterx. "How to make certain text not selectable with CSS [duplicate]." Stack Overflow, 1 Aug. 2011, stackoverflow.com/q/6900124.
+
+	Matthew905. "Can I stretch text using CSS?" Stack Overflow, 14 Jun. 2011, stackoverflow.com/q/6351013.
+
+	W3 Schools. "onmouseover Event." W3Schools, www.w3schools.com/jsref/event_onmouseover.asp.
+
+	Rauniyar, Bhojendra. "How can I invert color using CSS?" Stack Overflow, 19 Jul. 2013, stackoverflow.com/q/17741629.
+
+	Robertson, Christian. "Roboto." Google Fonts, Google, fonts.google.com/specimen/Roboto.
+
+	Robertson, Christian. "Roboto Mono." Google Fonts, Google, fonts.google.com/specimen/Roboto+Mono.
+
+	Tsunekawa, Ryoichi. "Bebas Neue." Google Fonts, Google, fonts.google.com/specimen/Bebas+Neue.
+	
+	Special Mentions
+	The Firefox Developer Edition Inspector Element: https://www.mozilla.org/en-US/firefox/developer
+	Developed in Visual Studio Code: https://code.visualstudio.com/ 
+	
+	All icons made by Paris Lun in Adobe Photoshop CC 2020: https://www.adobe.com/products/photoshop.html.
+	I did not make the Google icon.
+	All work is original.
+
+	Fonts Used: Roboto by Christian Anderson, Roboto Mono Christian Andersond, Bebas Neue by Ryoichi Tsunekawa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	-->
+	
+</body>
+
+</html>

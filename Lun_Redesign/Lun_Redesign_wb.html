@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>IA</title>
+
+	<!--Scales the website for mobile devices and specifies the charset-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="css/Lun_Redesign.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<link rel="SHORTCUT ICON" href="images/Lun_Archive-Logo-A.svg">
+
+	<style>
+	</style>
+
+</head>
+
+<body>
+
+	<div id="sub-nav" class="topnav">
+		<nav>
+			<span>
+				<a id="about" class="nav-item" href="https://archive.org/about/">About</a>
+			</span>
+
+			<span>
+				<a id="blog" class="nav-item" href="https://blog.archive.org/">Blog</a>
+			</span>
+
+			<span>
+				<a id="projects" class="nav-item" href="https://archive.org/projects/">Projects</a>
+			</span>
+
+			<span>
+				<a id="help" class="nav-item" href="https://archive.org/about/faqs.php">Help</a>
+			</span>
+
+			<span>
+				<a id="donate" class="nav-item" href="https://archive.org/donate">Donate</a>
+			</span>
+
+			<span>
+				<a id="contact" class="nav-item" href="https://archive.org/about/contact.php">Contact</a>
+			</span>
+
+			<span>
+				<a id="jobs" class="nav-item" href="https://archive.org/about/jobs.php">Jobs</a>
+			</span>
+
+			<span>
+				<a id="volunteer" class="nav-item"
+					href="https://archive.org/about/volunteerpositions.php">Volunteer</a>
+			</span>
+
+			<span>
+				<a id="people" class="nav-item" href="https://archive.org/about/bios.php">People</a>
+			</span>
+		</nav>
+	</div>
+
+	<div id="main-nav" class="topnav">
+		<!--Primary Navigation Bar-->
+		<nav class="full-center">
+			<a id="home-button" class="nav-item" href="Lun_Redesign_index.html">
+
+				<!--SVG of logo and title I made-->
+				<img src="images/Lun_Archive-Logo-A.svg" alt="New Archive Logo: Three Books Viewed from an Angled Perspective that Represent the Columns of the Original" height="30">
+				<span id="archive-logo_text_RDSN" class="unselectable">Internet Archive</span>
+				
+			</a>
+
+			<nav id="nav-search-container">
+
+				<a id="button_categories" onclick="dropdownFunction_CTG()" class="lfloat button color-theme_A full-center">
+					CATEGORIES
+					<div class="triangle_up"></div>
+				</a>
+
+				<nav id="media-dropdown" class="full-center">
+					<!--WEB-->
+					<a class="nav-item" href="https://archive.org/web" target="_blank">
+						<span class="label-1">WEB</span>
+					</a>
+					<!--BOOKS-->
+					<a class="nav-item" href="https://archive.org/details/texts" target="_blank">
+						<span class="label-1">BOOKS</span>
+					</a>
+					<!--VIDEO-->
+					<a class="nav-item" href="https://archive.org/details/movies" target="_blank">
+						<span class="label-1">VIDEO</span>
+					</a>
+					<!--AUDIO-->
+					<a class="nav-item" href="https://archive.org/details/audio" target="_blank">
+						<span class="label-1">AUDIO</span>
+					</a>
+					<!--SOFTWARE-->
+					<a class="nav-item" href="https://archive.org/details/software" target="_blank">
+						<span class="label-1">SOFTWARE</span>
+					</a>
+					<!--IMAGES-->
+					<a class="nav-item" href="https://archive.org/web/images" target="_blank">
+						<span class="label-1">IMAGES</span>
+					</a>
+				</nav>
+
+				<div id="nav-searchbox" class="searchbox">
+					<input type="text" name="ia-search-input" id="ia-search-input" placeholder="Search">
+					<img src="images/Lun_search-icon.svg" alt="Search Icon: Magnifying Glass" class="unselectable">
+				</div>
+
+			</nav>
+
+			<div class="nav-right row">
+
+				<a id="upload" class="nav-item" href="https://archive.org/create">
+
+					<img id="upload-icon" src="images/Lun_upload-icon.svg" alt="Upload Icon: Plus Sign">
+					<span>UPLOAD</span>
+				</a>
+
+				<span id="account" class="nav-item">
+					<a href="Lun_Redesign_login.html" class="button color-theme_A">LOG IN</a>
+					<a href="Lun_Redesign_signup.html" class="button color-theme_B">SIGN UP</a>
+				</span>
+
+			</div>
+		</nav>
+	</div>
+
+	<main id="main-content">
+		<div class="full-center">
+			<div id="wbp-container">
+				<div id="wbp-heading" class="wbp-item">
+					<div id="wbp-logo" class="unselectable wbp-item">WAYBACK MACHINE</div>
+					Explore the history of the internet.
+				</div>
+				
+				<div id="wb-searchbox" class="searchbox wbp-item">
+					<input type="text" name="wb-search-input" id="wb-search-input" placeholder="https://">
+					<img src="images/Lun_search-icon.svg" alt="magnifying glass" height="30">
+				</div>
+				<a class="wbp-wayback-button color-theme_C full-center" href="Lun_Redesign_error.html">Go Wayback</a>
+			</div>
+
+			<div id="wbp-container2">
+				<div id="wbp-heading" class="wbp-item">
+					Capture webpage as it is now.
+				</div>
+				
+				<div id="capture-box" class="inputbox wbp-item">
+					<input type="text" name="wb-search-input" id="wb-search-input" placeholder="https://">
+				</div>
+				<a class="wbp-wayback-button color-theme_C full-center" href="Lun_Redesign_error.html">Save</a>
+			</div>
+		</div>
+		<div class="background-elements">
+			<div class="full-page-diagonal"></div>
+			<div class="large-slanted-rectangle"></div>
+		</div>
+
+		<div id="footer">
+			<a href='https://archive.org/about/terms.php'>Created By Paris Lun | Terms of Service (Last Updated 12/21/2014)</a>
+		</div>
+
+	</main>
+
+	<script src="js/Lun_sticky.js"></script>
+	<script src="js/Lun_category-dropdown.js"></script>
+	<script src="js/Lun_waybackanimation.js"></script>
+
+</body>
+
+</html>
