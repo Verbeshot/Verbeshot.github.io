@@ -141,7 +141,7 @@ main {
 	width: 100vw;
 	height:100vh;
 	perspective: 1500px;
-  	perspective-origin: 50% -75px;
+  	perspective-origin: 50% 50%;
 }
 
 #stage {
@@ -234,7 +234,7 @@ main {
 	60% {transform: rotate3d(4,2,3,-225deg) translate3d(0px,400px,400px) scale(150%, 300%);}
 	80% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,800px,400px) scale(200%, 425%);}
 	85% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,800px,400px) scale(200%, 425%);}
-	100% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,600px,400px) scale(200%, 425%);}
+	100% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,650px,400px) scale(200%, 425%);}
 }
 
 .dooropen {
@@ -244,7 +244,7 @@ main {
 @keyframes dooropen{
 	0% {background-color: var(--orange-0); transform-origin: left; transform: rotate3d(0,1,0,0deg); 
 		filter: saturate(75%); border: 0px;}
-	100% {transform-origin: left; transform: rotate3d(0,1,0,-120deg); filter: saturate(75%);}
+	100% {transform-origin: left; transform: rotate3d(0,1,0,-100deg); filter: saturate(75%);}
 }
 
 .textspasm {

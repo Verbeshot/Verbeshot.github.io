@@ -81,4 +81,5 @@ function resetAll() {
     door.style.filter = "saturate(1)";
     door.style.border = "5px";
     welcome.style.visibility = "visible";
+    door.classList.remove("dooropen");
 }
