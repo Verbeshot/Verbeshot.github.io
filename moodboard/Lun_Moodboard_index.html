@@ -17,41 +17,209 @@
 <body>
 
 	<div id="debug-menu">
-		<div id="button_reset" onclick="resetzoom()"><a>zRESET</a></div>
 
-		<div id="button_reset" onclick="resetAll()"><a>aRESET</a></div>
+		<div class="button_reset" onclick="galleryload()"><a>SKIP</a></div>
+
+		<div class="button_reset" onclick="resetMovement()"><a>pRESET</a></div>
+
+		<div class="button_reset" onclick="camMovement()"><a>Cam Toggle (experimental)</a></div>
+
+		<div id="console" class="button_reset"></div>
+
 	</div>
 
-	<main id="stage">
-		<div id="background" class="canvas">
-			
-			<div id="start" class="placeable polygon">
-				<div id="start_text" class="placeable polygon">Hello</div>
+	<main id="viewport" class="canvas">
+
+		<div id="camera" class="canvas">
+
+			<div id="scene-0" class="placeable polygon">
+				
+				<div id="start" class="placeable polygon">
+					<div id="start_text" class="placeable polygon">Hello</div>
+				</div>
+
+				<div id="doorframe" class="placeable polygon"></div>
+				<div id="door" class="placeable polygon"></div>
+
+				<div id="hallway-0" class="placeable polygon">
+					<div id="floor-0" class="placeable polygon"></div>
+					<div id="ceiling-0" class="placeable polygon"></div>
+					<div id="fwall-0" class="placeable polygon"></div>
+					<div id="rwall-0" class="placeable polygon">
+						<div>MOODBOARD</div>
+					</div>
+					<div id="lwall-0" class="placeable polygon">MOODBOARD</div>
+				</div>
 			</div>
 
-			<div id="doorframe" class="placeable polygon"></div>
-			<div id="door" class="placeable polygon"></div>
+			<div id="scene-1" class="placeable polygon">
+
+					<div id="fwall-a" class="fwall-1 placeable polygon"></div>
+					<div id="bwall-a" class="bwall-1 placeable polygon">
+						<div id="blurb" class="placeable">H.T.M.L + C.S.S J.S</div>
+					</div>
+					<div id="floor-a" class="floor-1 placeable polygon">
+						
+						<div id="fonts" class="placeable">
+							<div id="Bitter" class="font">
+								Bitter
+							</div>
+							<div id="Bree-Serif" class="font">
+								Bree Serif
+							</div>
+							<div id="Return-of-Ganon" class="font">
+								Return of Ganon
+							</div>
+							<div id="fonts-label" class="font">
+								FONTS
+							</div>
+						</div>
+
+						<div id="personality" class="placeable">
+							<div class="trait">
+								Resilient
+							</div>
+							<div class="trait">
+								Mindful
+							</div>
+							<div class="trait">
+								Spontaneous
+							</div>
+							<div class="trait">
+								Jaunty
+							</div>
+							<div class="trait">
+								Magnanimous
+							</div>
+						</div>
+					</div>
+
+					<div id="ceiling-a" class="ceiling-1 placeable polygon">
+						<div id="colors" class="placeable">
+							<div id="color1" class="color">
+								#dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 
+								#dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8 #dfd1b8
+							</div>
+							<div id="color2" class="color">
+								#4e422a #4e422a #4e422a #4e422a #4e422a #4e422a #4e422a #4e422a #4e422a 
+								#4e422a #4e422a #4e422a #4e422a #4e422a #4e422a #4e422a #4e422a #4e422a
+							</div>
+							<div id="color4" class="color">
+								#0C081F #0C081F #0C081F #0C081F #0C081F #0C081F #0C081F #0C081F #0C081F
+								#0C081F #0C081F #0C081F #0C081F #0C081F #0C081F #0C081F #0C081F #0C081F
+							</div>
+							<div id="color3" class="color">
+								#f59637 #f59637 #f59637 #f59637 #f59637 #f59637 #f59637 #f59637 #f59637 
+								#f59637 #f59637 #f59637 #f59637 #f59637 #f59637 #f59637 #f59637 #f59637
+							</div>
+						</div>
+					</div>
+
+					<div id="rwall-a" class="rwall-1 placeable polygon">
+						<div id="rpaintings" class="full-center">
+							<div class="painting">
+								<img src="Images/Lun_painting1.png" alt="Lots of colors" height="400px">
+								<div class="label">Human Laser</div>
+							</div>
+							<div class="painting">
+								<img src="Images/Lun_painting2.png" alt="Telescope to the Moon" height="400px">
+								<div class="label">Closer Than It Seems</div>
+							</div>
+						</div>
+						<div id="paintings-label" class="placeable">
+							ILLUSTRATIONS
+						</div>
+					</div>
+
+					<div id="lwall-a" class="lwall-1 placeable polygon">
+						<div id="lpaintings" class="full-center">
+							<div class="painting">
+								<img src="Images/Lun_painting3.png" alt="Giant in the Valley" height="400px">
+								<div class="label">The Better Man</div>
+							</div>
+							<div class="painting">
+								<img src="Images/Lun_painting4.jpg" alt="Highways" height="400px">
+								<div class="label">Highways!</div>
+							</div>
+						</div>
+						<div id="personality-label" class="placeable">
+							PERSONALITY
+						</div>
+					</div>
+				</div>
 
 		</div>
+
 	</main>
+
+	<div id="skybox" class="placeable">
+		<div id="declaration" class="unselectable">I make cool websites.</div>
+		<div id="declaration2" class="unselectable"> -PARIS LUN</div>
+		<div id="links" class="full-center">
+			<a href="Lun_Bibliography.html">Bibliography</a>
+			<a onclick="popup()">Inspirations</a>
+		</div>
+	</div>
+
+	<div id="inspirations" class="placeable">
+		<div>
+			<a href="fauux.neocities.org">Experiemntal Fansite for the Anime <b>Serial Experiments Lain</b></a>
+		</div>
+		<div>
+			<a href="youtube.com/watch?v=KD8hkveKmYQ">Sweet Trip - <b>Velocity; Design; Comfort</b></a>
+		</div>
+		<div>
+			<a href="www.youtube.com/watch?v=fZlNt05dCX8">Laurie Spiegal - <b>The Expanding Universe</b></a>
+		</div>
+		<div>
+			<a href="https://www.franshalsmuseum.nl/en/">The Franshal Museum Website</a>
+		</div>
+	</div>
+
+	<div id="tip-overlay" class="vibrate-less">
+		<p>Use Scrollbar to Move Around.</p>
+	</div>
 
 	<script src="JS/Lun_Moodboard.js"></script>
 	<!--
 	------------------------------------------------------------------BIBLIOGRAPHY------------------------------------------------------------------
 
-	https://fonts.google.com/specimen/Bitter?preview.text_type=custom#standard-styles
-	https://bennettfeely.com/clippy/
-	https://www.digitalocean.com/community/tutorials/css-clipping-with-clip-path
-	https://www.digitalocean.com/community/tutorials/css-masking-with-mask-image
-	https://www.w3schools.com/css/css3_animations.asp
-	http://html-tuts.com/fix-laggy-transitions-in-css/
-	https://stackoverflow.com/questions/16506623/css-animations-alter-frame-rate
-	https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d()
-	https://stackoverflow.com/questions/21668635/how-do-i-zoom-out-a-whole-website-using-jquery-or-css
-	https://www.htmlspacecode.com/2020/12/how-to-create-scroll-to-zoom-effect.html
-	https://www.w3schools.com/js/js_htmldom_html.asp
-	https://www.creativebloq.com/3d/how-create-impressive-3d-graphics-css3-21410672
-	
+	Alligator.io. "Masking Images in CSS Using the mask-image Property." DigitalOcean Community, DigitalOcean, www.digitalocean.com/community/tutorials/css-masking-with-mask-image.
+
+	codeman38. "Return of Ganon Font." 1001 Fonts, www.1001fonts.com/return-of-ganon-font.html.
+
+	"CSS Animations." W3Schools, www.w3schools.com/css/css3_animations.asp.
+
+	"CSS cursor Property." W3Schools, www.w3schools.com/csSref/pr_class_cursor.asp.
+
+	Dangi, Pushpa Raj. "How to create scroll to zoom effect?" <htmlSpaceCode/>, 14 Dec. 2020, www.htmlspacecode.com/2020/12/how-to-create-scroll-to-zoom-effect.html.
+
+	Feely, Bennett. Clippy — CSS clip-path maker." Bennett Feely, bennettfeely.com/clippy.
+
+	Hattemer, Andy and Alligator.io. "Introduction to Clipping Using clip-path in CSS." DigitalOcean Community, DigitalOcean, www.digitalocean.com/community/tutorials/css-clipping-with-clip-path.
+
+	"How to create impressive 3D graphics in CSS3." Creative Bloq, 13 Feb. 2014, www.creativebloq.com/3d/how-create-impressive-3d-graphics-css3-21410672.
+
+	"How to Fix Laggy Transitions in CSS." HTML-TUTS.com, html-tuts.com/fix-laggy-transitions-in-css.
+
+	"HTML DOM remove() Method." W3Schools, www.w3schools.com/jsref/met_element_remove.asp.
+
+	Huerta Tipográfica. "Bitter." Google Fonts, Google, fonts.google.com/specimen/Bitter.
+
+	"JavaScript HTML DOM - Changing HTML." W3Schools, www.w3schools.com/js/js_htmldom_html.asp.
+
+	olanod. "Full CSS 3D page - camera implementation." Stack Overflow, 7 Mar. 2013, stackoverflow.com/questions/15284044/full-css-3d-page-camera-implementation.
+
+	"rotate3d()." MDN Web Docs, Mozilla, developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d().
+
+	Timothy, Mark. "How do I zoom out a whole website using jQuery or CSS?" Stack Overflow, 10 Feb. 2014, stackoverflow.com/questions/21668635/how-do-i-zoom-out-a-whole-website-using-jquery-or-css.
+
+	Trolleymusic. "CSS Animations alter Frame Rate." Stack Overflow, 12 May 2013, stackoverflow.com/questions/16506623/css-animations-alter-frame-rate.
+
+	TypeTogether. "Bree Serif." Google Fonts, Google, fonts.google.com/specimen/Bree+Serif.
+
+	Walker, Alex. "The Cicada Principle and Why It Matters to Web Designers." SitePoint, 6 Apr. 2011, www.sitepoint.com/the-cicada-principle-and-why-it-matters-to-web-designers.
+		
 	Special Mentions
 	The Firefox Developer Edition Inspector Element: https://www.mozilla.org/en-US/firefox/developer
 	Developed in Visual Studio Code: https://code.visualstudio.com/ 

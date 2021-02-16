@@ -1,18 +1,33 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+@font-face {
+    font-family: 'Return of Ganon';
+    src: url('../Fonts/ReturnOfGanonReg.eot');
+    src: url('../Fonts/ReturnOfGanonReg.eot?#iefix') format('embedded-opentype'),
+		url('../Fonts/retganon.ttf')  format('truetype'),
+        url('../Fonts/ReturnOfGanonReg.woff2') format('woff2'),
+        url('../Fonts/ReturnOfGanonReg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     --black-0: rgb(8, 15, 27);
 	--black-1: rgb(12, 18, 31);
-    --white-0: #fff;
+    --white-0: #dfd1b8;
+	--white-1: #b8ab96;
     --yellow-0: #ffe15b;
 	--orange-0: #ff7c25;
+	--orange-1: #e48140;
+	--orange-2: #f59637;
 	--red-0: #dd4343;
 	--red-1: rgb(255, 41, 41);
-	--green-0: #9ecc4f;
+	--green-0: #60743a;
 	--violet-0: #aa99c9;
-	--blue-0: #1679cf;
-	--beige-0: #ffedc5;
+	--blue-0: #0004ff;
+	--brown-0: #4e422a;
 	--dgray-1: #333;
 	--dgray-2: #222;
 	--dgray-3: #444;
@@ -39,11 +54,12 @@ body {
 	font-size: 14px;
 	background-color: var(--black-1);
 	overflow: hidden;
+	scroll-behavior: smooth;
 }
 
 a {
 	text-decoration: none;
-	color: var(--black-0);
+	color: var(--black-1);
 	cursor: pointer;
 }
 
@@ -72,11 +88,14 @@ main {
 /*Objects*/
 .canvas {
     position: relative;
-
 }
 
 .placeable {
     position: absolute;
+}
+
+.row {
+	display: flex;
 }
 
 .triangle {
@@ -92,7 +111,7 @@ main {
 	height: 0;
 }
 
-/*Properites*/
+/*Properties*/
 .unselectable {
 	-moz-user-select: none;
 	-webkit-user-select: none;
@@ -103,6 +122,12 @@ main {
 	pointer-events: none;
 }
 
+.full-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 /*---------------------------------------------------------Specific Classes---------------------------------------------------------*/
 
 
@@ -111,6 +136,7 @@ main {
 
 /*-----------Debug Menu-------------*/
 #debug-menu {
+	display: none; /*turn on if need be*/
 	margin: 20px;
 	position: absolute;
 	z-index: 1;
@@ -124,42 +150,68 @@ main {
 	font-weight: 900;
 }
 
-#button_reset {
+.button_reset {
 	padding: 5px;
 	margin: 15px;
 	font-weight: 900;
 	background-color: var(--red-0);
+	color: var(--white-0);
 }
 
-#button_reset a {
+.button_reset a {
 	color: var(--white-0);
+}
+
+#tip-overlay {
+	position: absolute;
+	left: 50%;
+	font-family: 'Return of Ganon';
+	color: var(--white-0);
+	margin-left: 40rem;
+	margin-top: -60px;
+	font-size: 20px;
+	text-align: center;
+	text-shadow: 2px 2px var(--black-0);
+	display: none;
+}
+
+#console {
+	background-color: var(--black-0);
+	opacity: 80%;
+	padding: 50px;
+}
+
+#camera {
+	perspective: 800px;
+	perspective-origin: 514px 550px;
+	transform-origin: center;
+	transform-style: preserve-3d;
+	width: 100vw;
+	height:100vh;
 }
 
 /*-----------Start Screen Elements-------------*/
 
-#background {
+#scene-0 {
 	width: 100vw;
 	height:100vh;
 	perspective: 1500px;
-  	perspective-origin: 50% 50%;
-}
-
-#stage {
-	transform: scale(1);
+  	perspective-origin: 514px 550px;
+	transform-style: preserve-3d;
 }
 
 #start {
 	z-index: 2;
 	top: 100px;
-	right: 864px;
+	left:664px;
 	background-color: var(--orange-0);
 	width: 200px;
 	height: 200px;
 	filter: saturate(75%);
-	transform-origin: 175% 100%;
+	transform-origin: 200% 100%;
 	color: var(--white-0);
-	font-family: Bitter;
-	font-size: 75px;
+	font-family: "Return of Gannon";
+	font-size: 40px;
 	font-weight: 800;
 	text-align: center;
 }
@@ -167,27 +219,33 @@ main {
 #start_text {
 	transform: rotate(90deg);
 	color: var(--orange-0);
+	font-family: Bitter;
+	font-size: 75px;
 }
+
+/*-----------3d Objects-------------*/
+
+
+/*Entrance*/
 
 #doorframe {
 	top: 150px;
 	left: 314px;
-	background-color: var(--orange-0);
 	width: 400px;
 	height: 800px;
 	background-color: transparent;
 	border: 5px dashed var(--white-0);
 	transform-origin: center;
 	color: var(--white-0);
-	font-family: Bitter;
+	font-family: "Bree Serif";
 	font-size: 75px;
 	font-weight: 800;
 	text-align: center;
 	transform-style: preserve-3d;
+	transform: translate3d(0,0,-1px);
 }
 
 #door {
-	background-color: var(--orange-0);
 	top: 150px;
 	left: 314px;
 	width: 400px;
@@ -201,27 +259,430 @@ main {
 	font-weight: 800;
 	text-align: center;
 	transform-style: preserve-3d;
+	transform: translate3d(0,0,-1px);
+}
+
+#hallway-0 {
+	transform: scale(1);
+	perspective: 1500px;
+	transform-style: preserve-3d;
+	perspective-origin: 514px 550px;
+}
+
+#floor-0 {
+	top: 945px;
+	left: 314px;
+	width: 400px;
+	height: 6000px;
+	border: 5px dashed var(--white-0);
+	transform-style: preserve-3d;
+	transform-origin: top;
+	transform: translate3d(0,0,-1px);
+	color: var(--white-0);
+	font-family: "Return of Ganon";
+	font-size: 100px;
+	font-weight: 800;
+	text-align: center;
+}
+
+#ceiling-0 {
+	top: -5845px;
+	left: 314px;
+	width: 400px;
+	height: 6000px;
+	border: 5px dashed var(--white-0);
+	transform-style: preserve-3d;
+	transform-origin: bottom;
+	transform: translate3d(0,0,-1px);
+}
+
+#rwall-0 {
+	top: 150px;
+	left: 709px;
+	width: 6000px;
+	height: 800px;
+	border: 5px dashed var(--white-0);
+	transform-style: preserve-3d;
+	transform-origin: left;
+	transform: rotate3d(0,1,0,0deg) translate3d(5px,0,-1px);
+	color: var(--white-0);
+	font-family: 'Bree Serif';
+	font-size: 800px;
+	line-height: 0.95;
+}
+
+#lwall-0 {
+	top: 150px;
+	left: -5681px;
+	width: 6000px;
+	height: 800px;
+	border: 5px dashed var(--white-0);
+	transform-style: preserve-3d;
+	transform-origin: right;
+	transform: rotate3d(0,1,0,0deg) translate3d(0,0,-1px);
+	color: var(--white-0);
+	font-family: 'Bree Serif';
+	text-align: right;
+	font-size: 800px;
+	line-height: 0;
+}
+
+/*Gallery*/
+
+#scene-1 {
+	display: none;
+	width: 100vw;
+	height:100vh;
+	transform-style: preserve-3d;
+	transform-origin: center;
+}
+
+.bwall-1 {
+	top: 50%; 
+    left: 50%;
+    transform: translate3d(-50%,-50%, 0);
+	width: 550px;
+	height: 700px;
+	border: 5px solid var(--brown-0);
+	transform-style: preserve-3d;
+	transform-origin: bottom;
+	border-left: 0;
+	border-right: 0;
+}
+
+.fwall-1 {
+	top: 50%; 
+  left: 50%;
+  transform: translate3d(-50%,-50%, -550px) translateZ(-4000px);
+	width: 550px;
+	height: 700px;
+	border: 5px solid var(--brown-0);
+	border-left: 0;
+	border-right: 0;
+	transform-style: preserve-3d;
+	transform-origin: bottom;
+}
+
+.floor-1 {
+	top: 50%; 
+    left: 50%;
+	width: 550px;
+	height: 4550px;
+	border: 10px solid var(--brown-0);
+	background-color: var(--white-0);
+	transform-style: preserve-3d;
+	transform-origin: bottom;
+	transform: translate3d(-50%,-50%, 0) translateY(-1925px) rotate3d(1,0,0,90deg);
+}
+
+.ceiling-1 {
+	top: 50%; 
+    left: 50%;
+	width: 550px;
+	height: 4550px;
+	border: 10px solid var(--brown-0);
+	background-color: var(--white-0);
+	transform-style: preserve-3d;
+	transform-origin: top;
+	transform: translate3d(-50%,-50%, 0) translateY(1925px) rotate3d(1,0,0,-90deg);
+}
+
+.rwall-1 {
+	top: 50%; 
+    left: 50%;
+	width: 4550px;
+	height: 700px;
+	border-right: 0px;
+	border-left: 0;
+	transform-style: preserve-3d;
+	transform-origin: right;
+	transform: translate3d(-50%,-50%, 0) translateX(-2000px) rotate3d(0,1,0,-90deg);
+}
+
+.lwall-1 {
+	top: 50%; 
+    left: 50%;
+	width: 4550px;
+	height: 700px;
+	border-left: 0;
+	border-right: 0px;
+	transform-style: preserve-3d;
+	transform-origin: left;
+	transform: translate3d(-50%,-50%, 0) translateX(2000px) rotate3d(0,1,0,90deg);
+}
+
+.painting {
+	height: 700px;
+	padding-top: 150px;
+	padding-bottom: 150px;
+	padding-left: 50px;
+	padding-right: 50px;
+	background-color: var(--white-0);
+	border: 10px solid var(--brown-0);
+	color: var(--brown-0);
+	font-family: "Return of Ganon";
+	font-size: 80px;
+	font-weight: 800;
+	text-align: center;
+}
+
+.painting img {
+	filter: saturate(60%);
+}
+
+#rpaintings {
+	width: 2000px;
+	height: 700px;
+	justify-content: space-around;
+	transform: scale(3) translate3d(0,0,-2000px) rotateY(60deg);
+	
+}
+
+#lpaintings {
+	width: 2000px;
+	height: 700px;
+	float: right;
+	justify-content: space-around;
+	transform: scale(3) translate3d(0,0,-2000px) rotateY(-60deg);
+}
+
+#paintings-label {
+	transform: scale(3) translate3d(900px,100px,-1900px) rotateY(60deg);
+	color: var(--orange-2);
+	opacity: 80%;
+	font-size: 200px;
+	font-family: "Bree Serif"
+}
+
+#personality {
+	bottom: -1000px;
+	left: 50%;
+	transform: translate3d(-50%, 0, -500px);
+	color: var(--black-1);
+	font-family: "Bree Serif";
+	font-size: 400px;
+	font-weight: 800;
+	text-align: center;
+}
+
+#personality-label {
+	left: -1000px;
+	top: 50%;
+	transform: translate3d(800px,500px, -1800px) rotateY(-10deg) rotateX(0deg);
+	color: var(--orange-0);
+	font-family: "Bree Serif";
+	font-size: 17000px;
+	font-weight: 800;
+	text-align: center;
+	opacity: 70%;
+}
+
+#trait {
+	padding-top: 100px;
+}
+
+#fonts {
+	text-align: center;
+	left: 50%;
+	top: 0;
+	transform: translate3d(-50%, -2500px, 400px);
+	width: 8000px;
+	color: var(--white-0);
+	text-shadow: 5px 5px var(--brown-0);
+	font-size: 150px;
+	font-weight: 800;
+	text-align: center;
+	transform-style: preserve-3d;
+}
+
+.font {
+	margin-top: 200px;
+	transform: rotateX(-90deg);
+	transform-style: preserve-3d;
+}
+
+#Bitter {
+	font-family: 'Bitter';
+	transform: translate3d(150px,1000px,-200px) rotateX(-90deg) rotateY(-40deg) rotateZ(20deg);
+}
+
+#Bree-Serif {
+	font-family: "Bree Serif";
+	transform: translate3d(-250px,1000px,0px) rotateX(-90deg) rotateY(50deg) rotateZ(-15deg);
+}
+
+#Return-of-Ganon {
+	font-family: 'Return of Ganon';
+	transform: translate3d(250px,800px,100px) rotateX(-90deg) rotateY(-40deg) rotateZ(35deg);
+} 
+
+#fonts-label {
+	margin-top: 100px;
+	font-family: 'Bitter';
+	text-shadow: 20px 20px var(--brown-0);
+	font-size: 400px;
+	transform: translate3d(-190px,0,-420px) rotateX(-90deg) rotateZ(0deg);
+}
+
+#colors {
+	left: 50%;
+	top: 0;
+	width: 30000px;
+	transform: translate3d(-50%, 8000px, 3000px) rotateZ(90deg) rotatey(-90deg);
+	font-family: "Bree Serif";
+	font-size: 300px;
+}
+
+.color {
+	margin-top: 100px;
+	transform-style: preserve-3d;
+}
+
+#color1 {
+	background-color: #dfd1b8;
+}
+
+#color2 {
+	background-color: #4e422a;
+	color: var(--white-0);
+}
+
+#color3 {
+	background-color: #f59637;
+}
+
+#color4 {
+	background-color: #0C081F;
+	color: var(--white-0);
+	margin-top: 9000px;
+}
+
+#blurb {
+	font-family: "Return of Ganon";
+	font-size: 100px;
+	font-weight: 800;
+	text-align: center;
+	transform: translate3d(0,-250px,0) rotateX(-10deg);
+}
+
+/*-----------Skybox-------------*/
+
+#skybox {
+	display: none;
+	background-color: var(--white-0);
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+}
+
+#declaration {
+	font-family: "Return of Ganon";
+	color: var(--white-1);
+	font-size: 200px;
+	font-weight: 800;
+	margin-top: 50px;
+	margin-left: 20px;
+	perspective: 10000px;
+}
+
+#declaration2 {
+	font-family: "Return of Ganon";
+	color: var(--white-1);
+	font-size: 400px;
+	font-weight: 800;
+	margin-left: 20px;
+	text-align: center;
+}
+
+#links {
+	position: absolute;
+	left: 50%;
+	transform: translate3d(-50%,0,10px);
+	top: 600px;
+	justify-content: space-between;
+}
+
+#links a {
+	font-family: "Return of Ganon";
+	color: var(--brown-0);
+	font-size: 100px;
+	font-weight: 800;
+	margin: 60px;
+	justify-self: center;
+	transition: 0.3s;
+}
+
+#links a:hover {
+	transform: translate3d(0,10px,0);
+	color: var(--black-1);
+}
+
+
+.visible {
+	display: block;
+}
+
+#inspirations {
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--black-0);
+	display: none;
+	top: 0;
+	left: 0;
+}
+
+#inspirations a {
+	display: block;
+	color: var(--white-0);
+	font-size: 100px;
+	font-weight: 800;
+	margin: 60px;
+	justify-self: center;
+	transition: 0.3s;
+	font-family: "Return of Ganon";
+}
+
+#inspirations a:hover {
+	transform: translate3d(0,10px,0);
+	color: var(--white-1);
+}
+
+#bibliography {
+
 }
 
 /*---------------------------------------------------------Animations---------------------------------------------------------*/
 
+/*-----------General-------------*/
+
 .vibrate {
-	animation: vibrate 0.7s linear infinite;
+	animation: vibrate 0.5s linear infinite;
+}
+
+.vibrate-less {
+	animation: vibrate-less 0.5s steps(2) infinite;
 }
 
 @keyframes vibrate {
 	0%{transform: translate3d(0,0,0)}
 	10%{transform: translate3d(2px,0,1px)}
 	20%{transform: translate3d(0,1px,0)}
-	30%{transform: translate3d(-1px,0,2px)}
+	30%{transform: translate3d(-1px,0,1px)}
 	40%{transform: translate3d(0,1px,0)}
 	50%{transform: translate3d(1px,2px,1px)}
 	60%{transform: translate3d(2px,1px,0)}
-	70%{transform: translate3d(-1px,0,-1px)}
-	80%{transform: translate3d(-1px,2px,-1px)}
-	90%{transform: translate3d(-2px,0,-1px)}
+	70%{transform: translate3d(-1px,0,1px)}
+	80%{transform: translate3d(-1px,2px,0px)}
+	90%{transform: translate3d(-2px,0,1px)}
 	100%{transform: translate3d(0,0,0)}
 }
+
+@keyframes vibrate-less {
+	0%{transform: translate3d(0,0,0)}
+	100%{transform: translate3d(0,2px,0)}
+}
+
+/*-----------Starting Animation-------------*/
 
 .paperfall {
 	animation: paperfall 10s steps(15) forwards;
@@ -229,12 +690,12 @@ main {
 
 @keyframes paperfall {
 	0% {transform: rotate3d(4,2,3,0deg);}
-	20% {transform: rotate3d(4,2,3,-145deg) translate3d(0px,100px,400px) scale(120%,140%);}
-	40% {transform: rotate3d(4,2,3,-40deg) translate3d(0px,200px, 200px) scale(140%, 200%);}
-	60% {transform: rotate3d(4,2,3,-225deg) translate3d(0px,400px,400px) scale(150%, 300%);}
-	80% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,800px,400px) scale(200%, 425%);}
-	85% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,800px,400px) scale(200%, 425%);}
-	100% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,650px,400px) scale(200%, 425%);}
+	20% {transform: rotate3d(4,2,3,-145deg) translate3d(0px,100px,400px) scale(1.2,1.4);}
+	40% {transform: rotate3d(4,2,3,-40deg) translate3d(0px,200px, 200px) scale(1.4, 2.0);}
+	60% {transform: rotate3d(4,2,3,-225deg) translate3d(0px,400px,400px) scale(1.5 3.0);}
+	80% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,800px,400px) scale(2.0, 4.25);}
+	85% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,800px,400px) scale(2.0, 4.25);}
+	100% {transform: rotate3d(4,2,3,-360deg) translate3d(0px,650px,400px) scale(2.00, 4.25);}
 }
 
 .dooropen {
@@ -244,26 +705,113 @@ main {
 @keyframes dooropen{
 	0% {background-color: var(--orange-0); transform-origin: left; transform: rotate3d(0,1,0,0deg); 
 		filter: saturate(75%); border: 0px;}
-	100% {transform-origin: left; transform: rotate3d(0,1,0,-100deg); filter: saturate(75%);}
+	100% {transform-origin: left; transform: rotate3d(0,1,0,-95deg) translate3d(0,0,0px); filter: saturate(75%);}
 }
 
 .textspasm {
-	animation: textspasm 5s steps(15) forwards;
+	animation: textspasm 10s steps(30) forwards;
 }
 
 @keyframes textspasm {
 	0% {transform: rotate3d(4,2,3,90deg); mix-blend-mode: difference;}
-	25% {transform: rotate3d(4,2,3,-140deg) translate3d(0px,100px,400px) scale(120%,110%);}
-	50% {transform: rotate3d(4,2,3,0deg) translate3d(0px,200px, 200px) scale(150%, 150%);}
-	75% {transform: rotate3d(4,2,3,-140deg) translate3d(0px,400px,400px) scale(150%, 160%);}
-	100% {transform: rotate3d(4,2,3,0deg) translate3d(0px,800px,600px) scale(200%, 220%); visibility: hidden;}
+	25% {transform: rotate3d(4,2,3,-180deg) translate3d(0px,100px,400px) scale(1.2,1.1);}
+	50% {transform: rotate3d(4,2,3,0deg) translate3d(0px,200px, 200px) scale(1.5, 1.5);}
+	75% {transform: rotate3d(4,2,3,-180deg) translate3d(0px,400px,400px) scale(1.5, 1.6);}
+	100% {transform: rotate3d(4,2,3,0deg) translate3d(0px,800px,600px) scale(2.0, 2.2); visibility: hidden;}
 }
 
-.stagezoom {
-	animation: stagezoom 8s ease forwards;
+.wallswing-l {
+	animation: wallswing-l 5s steps(15) forwards;
 }
 
-@keyframes stagezoom {
-	0% {transform: scale(1);}
-	100% {transform: scale(0.3);}
+@keyframes wallswing-l {
+	0% {transform: rotate3d(0,1,0,0deg);}
+	100% {transform: rotate3d(0,1,0,90deg) translate3d(0,0,-80px); background-color: var(--orange-0);}
 }
+
+.wallswing-r {
+	animation: wallswing-r 5s steps(15) forwards;
+}
+
+@keyframes wallswing-r {
+	0% {transform: rotate3d(0,1,0,0deg);}
+	100% {transform: rotate3d(0,1,0,-90deg)  translate3d(0,0,-80px); background-color: var(--orange-0);}
+}
+
+.floorswing {
+	animation: floorswing 5s steps(15) forwards;
+}
+
+@keyframes floorswing {
+	0% {transform: rotate3d(1,0,0,0deg);}
+	100% {transform: rotate3d(1,0,0,90deg) translate3d(0,0,-4px); background-color: var(--orange-2); border-top: 0px;}
+}
+
+.stagezoom1 {
+	animation: stagezoom1 20s ease forwards;
+}
+
+@keyframes stagezoom1 {
+	0% {transform: translate3d(0,0,0px); perspective-origin: 514px 550px;}
+	75% {transform: translate3d(0,0,-3000px); perspective-origin: left;}
+	100% {transform: translate3d(0,0,-3000px); perspective-origin: 514px 550px;}
+}
+
+.entranceglow {
+	animation: entranceglow 1s steps(6) forwards;
+}
+
+@keyframes entranceglow {
+	0% {background-color: transparent;} 
+	100% {background-color: var(--white-0);}
+}
+
+.roofswing {
+	animation: roofswing 5s steps(15) forwards;
+}
+
+@keyframes roofswing {
+	0% {transform: rotate3d(1,0,0,0deg); background-color: transparent;}
+	100% {transform: rotate3d(1,0,0,-90deg) translate3d(0,0,-80px); background-color: var(--orange-2);}
+}
+
+.floating-l {
+	animation: floating-l 6s infinite ease-out;
+}
+
+@keyframes floating-l {
+	0%{transform: rotate3d(0,1,0,90deg) translate3d(0,0,-80px); background-color: var(--orange-0);}
+	50%{transform: rotate3d(0,1,0,90deg) translate3d(0,0,-60px); background-color: var(--orange-0);}
+	100%{transform: rotate3d(0,1,0,90deg) translate3d(0,0,-80px); background-color: var(--orange-0);}
+}
+
+.floating-r {
+	animation: floating-r 6s infinite ease-out;
+}
+
+@keyframes floating-r {
+	0%{transform: rotate3d(0,1,0,-90deg)  translate3d(0,0,-80px);  background-color: var(--orange-0);}
+	50%{transform: rotate3d(0,1,0,-90deg)  translate3d(0,0,-60px);  background-color: var(--orange-0);}
+	100%{transform: rotate3d(0,1,0,-90deg)  translate3d(0,0,-80px);  background-color: var(--orange-0);}
+}
+
+.floating-t {
+	animation: floating-t 6s infinite ease-out;
+}
+
+@keyframes floating-t {
+	0%{transform: rotate3d(1,0,0,-90deg) translate3d(0,0,-80px); background-color: var(--orange-2);}
+	50%{transform: rotate3d(1,0,0,-90deg) translate3d(0,0,-60px); background-color: var(--orange-2);}
+	100%{transform: rotate3d(1,0,0,-90deg) translate3d(0,0,-80px); background-color: var(--orange-2);}
+}
+
+.goinginside {
+	animation: goinginside 2s forwards ease-in;
+}
+
+@keyframes goinginside {
+	0% {transform: translate3d(0,0,-3000px); perspective-origin: 514px 550px;}
+	100% {transform: translate3d(0,0,1100px); perspective-origin: 514px 550px;}
+}
+
+/*-----------Gallery Animations-------------*/
