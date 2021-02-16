@@ -427,14 +427,14 @@ main {
 }
 
 .painting img {
-	filter: saturate(60%);
+	filter: sepia(100%) contrast(50%);
 }
 
 #rpaintings {
 	width: 2000px;
 	height: 700px;
 	justify-content: space-around;
-	transform: scale(3) translate3d(0,0,-2000px) rotateY(60deg);
+	transform: scale(3) translate3d(0,0,-2200px) rotateY(60deg);
 	
 }
 
@@ -443,7 +443,7 @@ main {
 	height: 700px;
 	float: right;
 	justify-content: space-around;
-	transform: scale(3) translate3d(0,0,-2000px) rotateY(-60deg);
+	transform: scale(3) translate3d(0,0,-2200px) rotateY(-60deg);
 }
 
 #paintings-label {
@@ -463,6 +463,8 @@ main {
 	font-size: 400px;
 	font-weight: 800;
 	text-align: center;
+	perspective: 800px;
+	transform-style: preserve-3d;
 }
 
 #personality-label {
@@ -474,18 +476,40 @@ main {
 	font-size: 17000px;
 	font-weight: 800;
 	text-align: center;
-	opacity: 70%;
+	opacity: 80%;
 }
 
 #trait {
+	position: absolute;
 	padding-top: 100px;
+	transform-style: preserve-3d;
+}
+
+#trait1{
+	transform: translate3d(0,0,-150px) rotateY(0deg) rotateX(0deg);
+}
+
+#trait2{
+	transform: translate3d(0,0,-100px) rotateY(0deg) rotateX(0deg);
+}
+
+#trait3{
+	transform: translate3d(0,0,-150px) rotateY(0deg) rotateX(0deg);
+}
+
+#trait4{
+	transform: translate3d(0,0,-40px) rotateY(0deg) rotateX(0deg);
+}
+
+#trait5{
+	transform: translate3d(0,0,-100px) rotateY(0deg) rotateX(0deg);
 }
 
 #fonts {
 	text-align: center;
 	left: 50%;
 	top: 0;
-	transform: translate3d(-50%, -2500px, 400px);
+	transform: translate3d(-50%, -2000px, 400px);
 	width: 8000px;
 	color: var(--white-0);
 	text-shadow: 5px 5px var(--brown-0);
@@ -540,15 +564,18 @@ main {
 
 #color1 {
 	background-color: #dfd1b8;
+	
 }
 
 #color2 {
 	background-color: #4e422a;
+	margin-top: 3000px;
 	color: var(--white-0);
 }
 
 #color3 {
 	background-color: #f59637;
+	margin-top: 3000px;
 }
 
 #color4 {

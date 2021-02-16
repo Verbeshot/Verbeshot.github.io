@@ -104,7 +104,8 @@ function galleryload() {
     skybox.style.display = "block";
     composition_a.remove();
     body[0].style.backgroundColor = "var(--white-0)";
-    tipoverlay('clicktocontinue')
+    tipoverlay('clicktocontinue');
+    skybox.style.cursor = "pointer";
 
     skybox.addEventListener("click", function(){
         if (skip == false) {
@@ -136,13 +137,22 @@ let posZ = 0;
 function movement() {
     document.addEventListener("wheel", (Event) => {
         scrollaction += 1;
-        tipoverlay('freemovement');
         if (Event.deltaY > 0  && zoom < 4400 ) {
             zoom += speed;
             composition_b.style.transform = `translate3d(${(posX)}px, ${(posY)}px, ${(zoom + posZ)}px)`;
+            if (scrollaction >= 10) {
+                setTimeout(() => {
+                    tips.style.display = "none";
+                }, 5000);
+            }
         } if (Event.deltaY < 0 && zoom >= -2000) {
             zoom -= speed;
             composition_b.style.transform = `translate3d(${(posX)}px, ${(posY)}px, ${(zoom + posZ)}px)`;
+            if (scrollaction >= 10) {
+                setTimeout(() => {
+                    tips.style.display = "none";
+                }, 5000);
+            }
         }
     });
 }
@@ -155,11 +165,6 @@ function tipoverlay(flag) {
     if (flag == "freemovement") {
         tips.style.display = "block";
         tips.innerHTML = "Use Scrollbar to Move Around.";
-        if (scrollaction >= 10) {
-            setTimeout(() => {
-                tips.style.display = "none";
-            }, 5000);
-        } 
     }
 
     if(flag == "clicktocontinue") {
