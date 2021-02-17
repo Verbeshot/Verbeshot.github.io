@@ -162,23 +162,22 @@ main {
 	color: var(--white-0);
 }
 
-#tip-overlay {
-	position: absolute;
-	left: 50%;
-	font-family: 'Return of Ganon';
-	color: var(--white-0);
-	margin-left: 40rem;
-	margin-top: -60px;
-	font-size: 20px;
-	text-align: center;
-	text-shadow: 2px 2px var(--black-0);
-	display: none;
-}
-
 #console {
 	background-color: var(--black-0);
 	opacity: 80%;
 	padding: 50px;
+}
+
+/*-----------3d Foundations-------------*/
+
+#tip-overlay {
+	font-family: 'Return of Ganon';
+	color: var(--white-0);
+  margin-top: -20vh;
+	font-size: 20px;
+	text-align: center;
+	text-shadow: 2px 2px var(--black-0);
+	display: none;
 }
 
 #camera {
@@ -188,6 +187,12 @@ main {
 	transform-style: preserve-3d;
 	width: 100vw;
 	height:100vh;
+}
+
+.warning {
+	margin-left: 300px;
+	margin-top: -40px;
+	font-size: 20px;
 }
 
 /*-----------Start Screen Elements-------------*/
@@ -603,9 +608,11 @@ main {
 }
 
 #declaration {
+	text-align: center;
 	font-family: "Return of Ganon";
 	color: var(--white-1);
-	font-size: 200px;
+	font-size: 20vh;
+	text-shadow: 5px 5px var(--brown-0);
 	font-weight: 800;
 	margin-top: 50px;
 	margin-left: 20px;
@@ -613,40 +620,42 @@ main {
 }
 
 #declaration2 {
-	font-family: "Return of Ganon";
+	font-family: "Bree Serif";
 	color: var(--white-1);
-	font-size: 400px;
+	font-size: 35vh;
 	font-weight: 800;
 	margin-left: 20px;
 	text-align: center;
 }
 
 #links {
-	position: absolute;
-	left: 50%;
-	transform: translate3d(-50%,0,10px);
+	text-align: center;
+  margin-top: 5vh;
+	transform: translate3d(-0%,0,0px);
 	top: 600px;
 	justify-content: space-between;
 }
 
 #links a {
+	display: inline-block;
 	font-family: "Return of Ganon";
 	color: var(--brown-0);
-	font-size: 100px;
+	font-size: 8vw;
 	font-weight: 800;
-	margin: 60px;
+	margin: 5vw;
 	justify-self: center;
 	transition: 0.3s;
+	transform: translate3d(0,-10vh,0);
 }
 
 #links a:hover {
-	transform: translate3d(0,10px,0);
 	color: var(--black-1);
+	transform: translate3d(0,-7vh,0);
 }
 
 
 .visible {
-	display: block;
+	display: block !important;
 }
 
 #inspirations {
@@ -661,9 +670,9 @@ main {
 #inspirations a {
 	display: block;
 	color: var(--white-0);
-	font-size: 100px;
+	font-size: 10vh;
 	font-weight: 800;
-	margin: 60px;
+	margin: 5vh;
 	justify-self: center;
 	transition: 0.3s;
 	font-family: "Return of Ganon";
@@ -675,7 +684,48 @@ main {
 }
 
 #bibliography {
+	color: var(--white-0);
+	text-align: center;
+	font-family: "Return of Ganon";
+	transform: scale(90%);
+}
 
+.citation{
+	color: var(--white-0);
+	font-size: 20px;
+	font-weight: 800;
+	font-family: "Return of Ganon";
+	margin-top: 15px;
+	margin-left: 20px;
+	text-align: center;
+}
+
+.citation:hover {
+	color: var(--white-1) !important;
+}
+
+.mentions {
+	font-size:30px !important;
+}
+
+.biblio-label {
+	font-size: 40px;
+}
+
+.button_biblio {
+	margin-left: 20px;
+	color: var(--white-0);
+	font-size: 20px;
+	font-weight: 800;
+	font-family: "Return of Ganon";
+	background-color: var(--orange-1);
+	padding: 10px;
+	transition: 0.5s;
+}
+
+.button_biblio:hover {
+	transform: translate3d(0,3px,0);
+	background-color: var(--white-1);
 }
 
 /*---------------------------------------------------------Animations---------------------------------------------------------*/
