@@ -18,6 +18,15 @@ const skybox = document.getElementById('skybox');
 const inspo = document.getElementById('inspirations');
 const myname = document.getElementById('declaration2');
 
+page.requestPointerLock = page.requestPointerLock ||
+			     page.mozRequestPointerLock ||
+			     page.webkitRequestPointerLock;
+
+document.exitPointerLock = document.exitPointerLock ||
+			   document.mozExitPointerLock ||
+			   document.webkitExitPointerLock;
+document.exitPointerLock();
+
 let zoom = 0;
 let scrollaction = 0;
 let speed = 100;
@@ -48,6 +57,8 @@ function startAnimation() {
             welcome_t.innerHTML = "Welcome";
             welcome_t.style.color = "var(--white-0)";
             floor0.innerHTML = "PARIS LUN";
+            page.addEventListener("click", galleryload);
+            tipoverlay('clicktoskip');
         }, 1800);
     }
 
@@ -65,6 +76,7 @@ function startAnimation() {
                     ceiling0.classList.add("floating-t");
                 }, 5000);
             }
+            tipoverlay('goaway');
         }, 12000);
     }
 
@@ -81,6 +93,7 @@ function startAnimation() {
                     if (skip == false) {
                         setTimeout(() => {
                             page.style.cursor = "pointer";
+                            page.removeEventListener("click", galleryload);
                             page.addEventListener("click", function(){transitionAnimation()});
                         }, 3000);
                     }
@@ -101,24 +114,19 @@ function transitionAnimation() {
 }
 
 function galleryload() {
-    skybox.style.display = "block";
+    page.removeEventListener("click", galleryload);
+    skip = true;
     composition_a.remove();
     body[0].style.backgroundColor = "var(--white-0)";
-    tipoverlay('clicktocontinue');
-    skybox.style.cursor = "pointer";
-
-    skybox.addEventListener("click", function(){
-        if (skip == false) {
-            composition_b.style.display = "block";
-            skybox.style.display = "none";
-            camera.style.perspectiveOrigin = "center";
-            page.style.perspectiveOrigin = "center";
-            zoom = -2000;
-            composition_b.style.transform = `translate3d(${(posX)}px, ${(posY)}px, ${(zoom + posZ)}px)`;
-            tipoverlay('freemovement');
-            movement();
-        }
-    });
+    composition_b.style.display = "block";
+    camera.style.perspectiveOrigin = "center";
+    page.style.perspectiveOrigin = "center";
+    page.style.perspective = "425px";
+    zoom = -2000;
+    composition_b.style.transform = `translate3d(${(posX)}px, ${(posY)}px, ${(zoom + posZ)}px)`;
+    tipoverlay('freemovement');
+    movement();
+    camMovement();
     //camMovement();
 }
 
@@ -130,6 +138,7 @@ function popup() {
 
 let angleXZ = 0;
 let angleYZ = 0;
+let angleXY = 0;
 let posX = 0;
 let posY = 0;
 let posZ = 0;
@@ -172,6 +181,15 @@ function tipoverlay(flag) {
         tips.innerHTML = "Or Click My Name to Continue";
     }
 
+    if(flag == "clicktoskip") {
+        tips.style.display = "block";
+        tips.innerHTML = "Click to Skip";
+    }
+
+    if(flag == "goaway") {
+        tips.style.display = "none";
+    }
+
     if(flag == "remove") {
         tips.innerHTML = "Click Here to Go Back";
         tips.style.transform = "translate3d(500px;)";
@@ -187,23 +205,25 @@ function tipoverlay(flag) {
 
 //var angleXY = 0; We don't need to tilt our heads
 
+let adjustment = 0;
 
 function calcPos() {
-    posX = Math.sin(angleXZ*0.0174532925) * 800;
-    posZ = Math.cos(angleXZ*0.0174532925) * 800;   
+    posX = Math.sin(angleXZ*0.0174532925) * 425;
+    posZ = 425 - Math.cos(angleXZ*0.0174532925) * 425;   
 }
 
 function camMovement() {
-    document.addEventListener("mousemove", (Event) => {
+    page.requestPointerLock();
+    page.addEventListener("mousemove", (Event) => {
         mouseX = Event.movementX;
         mouseY = Event.movementY;
-        angleXZ -= Math.cbrt(mouseX);
-        angleYZ -= Math.cbrt(mouseY);
-        calcPos();
+        angleXZ += 0.09678*mouseX;
+       // angleYZ += 0.09678*mouseY;
+        //calcPos();
 
-        camera.style.transform = `rotateY(${(angleXZ)}deg) rotateX(${(angleYZ)}deg)`;
-        composition_b.style.transform = `translate3d(-${(posX)}px, -${(posY)}px, -${(zoom + posZ)}px)`;
+        camera.style.transform = `translateZ(425px) rotateY(${(1800-angleXZ)}deg) rotateX(${(1800-angleYZ)}deg) `;
+        //composition_b.style.transform = `translate3d(-${(posX)}px, -${(posY)}px, -${(zoom + posZ)}px)`;
 
-        console.innerHTML = `x: ${(mouseX)}, y: ${(mouseY)}, angleXZ: ${(angleXZ)}, angleYZ${(angleYZ)}`;
+        console.innerHTML = `x: ${(mouseX)}, y: ${(mouseY)}, angleXZ: ${(angleXZ)}, angleYZ${(angleYZ)}, ${(adjustment)}`;
     })
 }
